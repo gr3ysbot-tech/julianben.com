@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test | JulianBen.com</h1>
+    <time>2015-11-04</time>
+    <div class="content">
+<!DOCTYPE html> 
+<html lang="en-US">
+
+<head>
+
+
+
+
+
+
+<!-- End Wayback Rewrite JS Include -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test | JulianBen.com</title>
+		
+	<link rel="pingback" href="http://www.julianben.com/xmlrpc.php"/>
+
+	<!-- HTML5 for IE < 9 -->
+	<!--[if lt IE 9]>
+	
+	<![endif]-->
+
+	
+
+
+
+		
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+
+
+
+<link rel="https://api.w.org/" href="http://www.julianben.com/wp-json/"/>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.julianben.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.julianben.com/wp-includes/wlwmanifest.xml"/> 
+
+
+<meta name="generator" content="WordPress 5.2.3"/>
+
+
+
+
+
+
+	<style type="text/css">
+		a, #comments h3, h3#reply-title {
+			color: #364D96;
+		}
+		
+        ::selection, ::-moz-selection {
+			background: rgba(54,77,150,0.8);
+			color: #fff;
+		}
+		
+		.format-link h2 a, #header-image-div {
+			background: #364D96;
+		}
+		
+		@media screen and (max-width: 850px) {
+			nav ul li a:active, nav ul li a:focus, nav ul li a:hover {
+				background: #364D96;
+			}
+		}
+
+		input[type=submit]:hover, button:hover, .navigation a:hover, input[type=submit]:active, button:active, .navigation a:active, input[type=submit]:focus, button:focus, .navigation a:focus {
+			box-shadow: 0 0 4px rgba(54,77,150,0.8);
+			border: 1px solid rgba(54,77,150,0.8)!important;
+		}
+
+		input:focus, textarea:focus {
+			box-shadow: inset 0 0 3px rgba(54,77,150,0.2);
+			border: 1px solid rgba(54,77,150,0.2);
+		}
+	</style>
+
+
+
+
+
+	<style type="text/css">
+		@media screen and (min-width: 851px) {
+			#headerimage {
+				height: 42px;
+			}
+		}
+	</style>
+
+</head>
+
+<body class="post-template-default single single-post postid-713 single-format-standard">
+<div id="wrapper">
+	<header id="header">
+
+		<section id="head">
+			<form method="get" id="headersearch" action="/">
+				<label class="hidden" for="hs">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="hs"/><input type="submit" id="hsearchsubmit" value="Search"/> 
+				</div>
+			</form>	
+						<h1><a href="/">JulianBen.com</a></h1>
+			<p class="description">Life In IT Service Management</p>
+		</section>
+
+				
+		<button id="showmenu">Menu</button>
+		<form method="get" id="mobilesearch" action="/">
+			<label class="hidden" for="s">Search:</label>
+			<div>
+				<input type="text" value="" name="s" id="s"/><input type="submit" id="searchsubmit" value="Search"/> 
+			</div>
+		</form>
+		
+		<nav id="mobnav">
+			<div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-216" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-216"><a href="/category/adobe/">Adobe</a></li>
+<li id="menu-item-214" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-214"><a href="/category/cisco-2/">Cisco</a></li>
+<li id="menu-item-213" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-213"><a href="/category/office365-2/">Office365</a></li>
+<li id="menu-item-215" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-215"><a href="/category/linux/">Linux</a></li>
+<li id="menu-item-217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-217"><a href="/category/microsoft/">Microsoft</a></li>
+<li id="menu-item-505" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-505"><a href="#">Resume</a></li>
+</ul></div>		</nav>
+
+
+	</header>
+
+	<section id="main">
+
+
+
+	<div id="content">
+
+	
+			<article id="post-713" class="post-713 post type-post status-publish format-standard hentry category-microsoft tag-exchange tag-smtp-test tag-telnet">	
+
+
+				<div class="title">
+				<h2><a href="/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/" title="Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test">Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test</a></h2>
+			</div>
+		
+	<div class="meta">
+				<a href="/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/">04. November 2015</a> &middot; <a href="/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/#respond">Write a comment</a>		 &middot; Categories: <a href="/category/microsoft/" rel="category tag">Microsoft</a> &middot; Tags: <a href="/tag/exchange/" rel="tag">exchange</a>, <a href="/tag/smtp-test/" rel="tag">smtp test</a>, <a href="/tag/telnet/" rel="tag">telnet</a>			</div>
+
+	<div class="entry">
+		<h3>Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test</h3>
+<p>A Telnet test involves establishing a Telnet session from a computer that is not located on the local network to the external (public) IP address of the Exchange server. You need to carry out the test from a machine at home, or from another office. Doing the test from a machine on your own network will produce useless results.</p>
+<ol>
+<li>Start a command prompt.<br/>
+Either click start, run and type CMD<br/>
+or Choose Command Prompt from Start, Programs, Accessories, Command Prompt</li>
+<li>Type &#8220;telnet&#8221; (minus quotes) and press enter.</li>
+<li>At the Telnet prompt, type
+<p><span style="font-family: Courier;">set localecho<br/>
+</span><br/>
+(minus quotes) and press enter. This lets you see what is going on.</li>
+<li>Still in the telnet prompt, enter the following command and then press enter
+<p><span style="font-family: Courier;">open external-ip 25<br/>
+</span><br/>
+where external-ip is your external IP address eg:</p>
+<p><span style="font-family: Courier;">open 111.222.333.444 25<br/>
+</span></li>
+<li>You should get a response back similar to the following:
+<p><span style="font-family: Courier;">220 mail.server.domain Microsoft ESMTP MAIL Service, Version: 6.0.2790.0 Ready at<br/>
+</span></li>
+<li>Type the following command in to the telnet windows:
+<p><span style="font-family: Courier;">ehlo testdomain.com<br/>
+</span><br/>
+and press enter (note &#8220;testdomain.com&#8221; can be anything that isn&#8217;t a domain that the Exchange server is responsible for.</li>
+<li>After pressing OK you should get a response back
+<p><span style="font-family: Courier;">250 OK<br/>
+</span></li>
+<li>Type the following command in to the telnet window:
+<p><span style="font-family: Courier;">mail from:address@testdomain.com<br/>
+</span><br/>
+and press enter (again where address@testdomain is an email address that is not on the Exchange server. Note the lack of space between from and the first part of the address).</li>
+<li>After pressing OK you should get a response back:
+<p><span style="font-family: Courier;">250 2.1.0 address@testdomain.com&#8230;.Sender OK<br/>
+</span></li>
+<li>Type the following command in to the telnet window:
+<p><span style="font-family: Courier;">rcpt to:address@anotherdomain.com<br/>
+</span><br/>
+and then press enter (where address@anotherdomain.com is not either an address you use internally or the address you entered earlier as the from. Once again note the lack of space between to and the first part of the e-mail address).</li>
+<li>After pressing enter you will get one of two responses.<br/>
+If you get</p>
+<p><span style="font-family: Courier;">550 5.7.1 Unable to relay for address@anotherdomain.com<br/>
+</span><br/>
+then you are relay secure.<br/>
+However if you get</p>
+<p><span style="font-family: Courier;">250 2.1.5 address@anotherdomain.com<br/>
+</span><br/>
+Then you are an open relay.</li>
+</ol>
+			</div>
+	
+</article>
+
+			
+			
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+	<div id="comment-form">
+						<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/web/20191023231931/http://www.julianben.com/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"/></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"/></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"/></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"/><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"/> <input type="hidden" name="comment_post_ID" value="713" id="comment_post_ID"/>
+<input type="hidden" name="comment_parent" id="comment_parent" value="0"/>
+</p>			</form>
+			</div><!-- #respond -->
+				</div>
+
+	
+	</div>
+	
+<div id="sidebar-bottom">
+	<aside id="sidebar-1" class="sidebar">
+
+		<div id="search-2" class="widget widget_search">			<form method="get" id="sidebarsearch" action="/">
+				<label class="hidden" for="s">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="s"/>
+					<input type="submit" id="searchsubmit" value="Search"/> 
+				</div>
+			</form>	
+</div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widgettitle">Recent Posts</h4>		<ul>
+											<li>
+					<a href="/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/">How to convert partition from MBR to GPT on Windows</a>
+									</li>
+											<li>
+					<a href="/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/">Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test</a>
+									</li>
+											<li>
+					<a href="/2015/10/29/how-to-add-an-smtp-address-in-office365-with-dirsync-adfs-enabled/">How to Add an SMTP address in Office365 with DirSync &#038; ADFS enabled</a>
+									</li>
+											<li>
+					<a href="/2015/03/03/dell-openmanage-server-administrator-on-vmware-esxi-5-5/">Dell OpenManage Server Administrator on VMWare ESXi 5.5</a>
+									</li>
+											<li>
+					<a href="/2015/02/09/unlock-windows-update-locked-due-to-group-policy/">Windows Update locked due to group policy</a>
+									</li>
+					</ul>
+		</div><div id="archives-2" class="widget widget_archive"><h4 class="widgettitle">Archives</h4>		<ul>
+				<li><a href="/2019/10/">October 2019</a></li>
+	<li><a href="/2015/11/">November 2015</a></li>
+	<li><a href="/2015/10/">October 2015</a></li>
+	<li><a href="/2015/03/">March 2015</a></li>
+	<li><a href="/2015/02/">February 2015</a></li>
+	<li><a href="/2014/11/">November 2014</a></li>
+	<li><a href="/2014/07/">July 2014</a></li>
+	<li><a href="/2014/05/">May 2014</a></li>
+	<li><a href="/2014/04/">April 2014</a></li>
+	<li><a href="/2014/02/">February 2014</a></li>
+	<li><a href="/2013/12/">December 2013</a></li>
+	<li><a href="/2013/11/">November 2013</a></li>
+	<li><a href="/2013/08/">August 2013</a></li>
+	<li><a href="/2013/06/">June 2013</a></li>
+	<li><a href="/2013/05/">May 2013</a></li>
+	<li><a href="/2013/04/">April 2013</a></li>
+	<li><a href="/2013/03/">March 2013</a></li>
+	<li><a href="/2013/01/">January 2013</a></li>
+	<li><a href="/2012/12/">December 2012</a></li>
+	<li><a href="/2012/11/">November 2012</a></li>
+	<li><a href="/2012/10/">October 2012</a></li>
+	<li><a href="/2012/09/">September 2012</a></li>
+	<li><a href="/2012/08/">August 2012</a></li>
+	<li><a href="/2012/07/">July 2012</a></li>
+		</ul>
+			</div>
+	</aside>
+
+	<aside id="sidebar-2" class="sidebar">
+
+		
+	</aside>
+</div>
+		</section><!-- end main section -->
+	<footer id="footer">
+		<div class="left">&copy; 2019 JulianBen.com. All rights reserved.</div>
+		<div class="right">Design by picomol. Powered by <a href="#">WordPress</a>.</div>
+	</footer>
+</div>
+		
+
+
+</body>
+</html>
+
+<!--Generated by Endurance Page Cache--><!--
+     FILE ARCHIVED ON 23:19:31 Oct 23, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:56:52 Mar 12, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 1.699
+  exclusion.robots: 0.118
+  exclusion.robots.policy: 0.108
+  esindex: 0.008
+  cdx.remote: 45.383
+  LoadShardBlock: 286.026 (3)
+  PetaboxLoader3.datanode: 139.202 (4)
+  PetaboxLoader3.resolve: 168.475 (3)
+  load_resource: 77.633
+-->
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

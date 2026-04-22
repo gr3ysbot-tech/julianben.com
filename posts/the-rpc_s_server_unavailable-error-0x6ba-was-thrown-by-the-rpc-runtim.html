@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The RPC_S_SERVER_UNAVAILABLE error (0x6ba) was thrown by the RPC Runtime process &laquo; JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>The RPC_S_SERVER_UNAVAILABLE error (0x6ba) was thrown by the RPC Runtime process &laquo; JulianBen.com</h1>
+    <time>2013-04-22</time>
+    <div class="content">
+
+<div id="wrapper">
+
+<div id="top_cufon"><h1 id="logo"><a name="top" title="JulianBen.com" href="/">JulianBen.com</a> <small></small></h1></div>
+
+<div id="header">
+<a id="rss-feed" title="Syndicate this site using RSS" href="/feed/">Subscribe via RSS</a>
+
+<div id="top_bar">
+<div class="center_menu">
+<ul id="front_menu">
+    <li><a class="" title="Home" href="/"><span>Home</span></a></li>
+<li id="menu-item-286" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-286"><a href="/category/adobe/"><span>Adobe</span></a></li>
+<li id="menu-item-270" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-270"><a href="/category/cisco-2/"><span>Cisco</span></a></li>
+<li id="menu-item-269" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-269"><a href="/category/office365-2/"><span>Office365</span></a></li>
+<li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-285"><a href="/category/linux/"><span>Linux</span></a></li>
+<li id="menu-item-288" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-288"><a href="/category/microsoft/"><span>Microsoft</span></a></li></ul>
+</div>
+<form method="get" id="searchform" action="/"> <input type="text" value="" name="s" id="s"/> <input type="submit" id="go" value="" alt="Search" title="Search"/></form>
+</div>
+
+
+</div>
+<div id="content"><div id="content-body">
+<div class="post-422 post type-post status-publish format-standard hentry category-office365-2 tag-errors tag-exchange tag-migration tag-office365 tag-rpc" id="post-422">
+<div class="comm_date"><span class="data"><span class="j">22</span>Apr/13</span><span class="nr_comm"><a class="nr_comm_spot" href="/2013/04/22/the-rpc_s_server_unavailable-error-0x6ba-was-thrown-by-the-rpc-runtime-process/#comments">Off</a></span></div>
+<h2><a title="The RPC_S_SERVER_UNAVAILABLE error (0x6ba) was thrown by the RPC Runtime process" href="/2013/04/22/the-rpc_s_server_unavailable-error-0x6ba-was-thrown-by-the-rpc-runtime-process/" rel="bookmark">The RPC_S_SERVER_UNAVAILABLE error (0x6ba) was thrown by the RPC Runtime process</a></h2>
+<p>I"m working on a Office365 Migration for a client that has an Excahange 2010.  Encountered some some migration issues.  I ran the testexchangeconnectivity.com test for RPC over HTTP, and everything was just fine, excpet for the last test, which returned the <strong>dreaded</strong>:</p>
+<p>"The RPC_S_SERVER_UNAVAILABLE error (0x6ba) was thrown by the RPC Runtime process."</p>
+<p>===================================================================<br/>
+<span id="more-422"></span></p>
+<p>The Fix:</p>
+<p>Disable IPv6 &amp; Change Hosts file.  Hard code the host file in your CAS &amp; DNS Server (c:\Windows\System32\drivers\etc)  with the IP, NetBIOS &amp; FQDN of the Exchange Client Access Server (CAS).  When you have an external domain that is different from your internal, you need to hardcode the external FQDN to point to the local IP of your CAS server on the CAS server itself &amp; Primary Domain Controller</p>
+<p>Modifying the hosts file to add the local IP address and local hostname  of the Exchange server fixed the problem for us.</p>
+<p>#127.0.0.1 localhost</p>
+<p>#::1 localhost<br/>
+10.1.1.2 mailserver<br/>
+10.1.1.2 mailserver.domain.local</p>
+
+
+
+<div class="cat_tags clear">
+<span class="category">Filed under: <a href="/category/office365-2/" title="View all posts in Office365" rel="category tag">Office365</a></span>
+<span class="continue"><a class="nr_comm_spot" href="/2013/04/22/the-rpc_s_server_unavailable-error-0x6ba-was-thrown-by-the-rpc-runtime-process/#respond">Comments Off</a></span><div class="clear"></div>
+</div>
+<div class="cat_tags_close"></div>
+
+
+</div>
+
+<div id="tabsContainer">
+<a href="#" class="tabs selected"><span>Comments (0)</span></a>
+<a href="#" class="tabs"><span>Trackbacks (0)</span></a>
+<span class="subscribe_comments"><a href="/2013/04/22/the-rpc_s_server_unavailable-error-0x6ba-was-thrown-by-the-rpc-runtime-process/feed/">( subscribe to comments on this post )</a></span>
+<div class="clear_tab"></div>
+<div class="tab-content selected">
+<a name="comments"></a>
+
+<p class="no">Sorry, the comment form is closed at this time.</p>
+
+ </div>
+
+<div class="tab-content">
+<p class="no">No trackbacks yet.</p></div>
+</div>
+<div class="next_previous_links">
+<span class="alignleft"><a href="/2013/05/17/fixing-the-volume-shadow-copy-service/" rel="next">Fixing the Volume Shadow Copy service</a> &raquo;</span>
+<span class="alignright">&laquo; <a href="/2013/04/16/windows-could-not-parse-or-process-the-unattend-answer-file-for-pass-specialize-with-ie10/" rel="prev">[MDT\WDS] Windows could not parse or process the unattend answer file for pass [specialize]</a></span>
+<div class="clear"></div>
+
+</div>
+</div>
+<div class="content-sidebar">
+				<h3>Most Recent</h3>		<ul>
+					<li>
+				<a href="/2013/08/22/check-mailbox-size-and-usage-with-office-365/" title="Check mailbox size and usage with Office 365">Check mailbox size and usage with Office 365</a>
+						</li>
+					<li>
+				<a href="/2013/08/21/how-to-manually-remove-exchange-2010/" title="How to manually remove Exchange 2010">How to manually remove Exchange 2010</a>
+						</li>
+					<li>
+				<a href="/2013/08/04/run-a-program-as-a-service/" title="Run a program as a Service">Run a program as a Service</a>
+						</li>
+					<li>
+				<a href="/2013/06/29/veeam-fastscp-windows-64bit-fix/" title="Veeam FastSCP Windows 64bit Fix">Veeam FastSCP Windows 64bit Fix</a>
+						</li>
+					<li>
+				<a href="/2013/06/23/micronugget-asa-vpn-connection-profiles/" title="MicroNugget – ASA VPN Connection Profiles">MicroNugget &#8211; ASA VPN Connection Profiles</a>
+						</li>
+				</ul>
+		<h3>Blogroll</h3>
+	<ul class="xoxo blogroll">
+<li><a href="#">CCIE Flyer</a></li>
+<li><a href="#">CCIE Journey</a></li>
+<li><a href="#">CCNP Security</a></li>
+<li><a href="#">EtherealMind</a></li>
+<li><a href="#">Gomjabbar</a></li>
+<li><a href="#">Hacking Cisco</a></li>
+<li><a href="#">INE Blog</a></li>
+<li><a href="#">IPExpert Blog</a></li>
+<li><a href="#">LoveMyTool</a></li>
+<li><a href="#">Networks Training</a></li>
+<li><a href="#">Packet Life</a></li>
+<li><a href="#">Packet Pushers</a></li>
+<li><a href="#">PacketU</a></li>
+<li><a href="#">RouterFreak</a></li>
+<li><a href="#" target="_blank">Tekcert</a></li>
+<li><a href="#">The Networking Nerd</a></li>
+
+	</ul>
+
+<h3>Tags</h3><div class="tagcloud"><a href="/tag/2008-r2/" class="tag-link-105" title="2 topics" style="font-size: 11.4054054054pt;">2008 r2</a>
+<a href="/tag/5500/" class="tag-link-11" title="1 topic" style="font-size: 8pt;">5500</a>
+<a href="/tag/5505/" class="tag-link-12" title="4 topics" style="font-size: 15.5675675676pt;">5505</a>
+<a href="/tag/active-directory/" class="tag-link-9" title="1 topic" style="font-size: 8pt;">active directory</a>
+<a href="/tag/anyconnect/" class="tag-link-3" title="3 topics" style="font-size: 13.6756756757pt;">anyconnect</a>
+<a href="/tag/asa/" class="tag-link-10" title="9 topics" style="font-size: 21.2432432432pt;">asa</a>
+<a href="/tag/asa5505/" class="tag-link-69" title="3 topics" style="font-size: 13.6756756757pt;">asa5505</a>
+<a href="/tag/calculate/" class="tag-link-22" title="2 topics" style="font-size: 11.4054054054pt;">calculate</a>
+<a href="/tag/centos/" class="tag-link-88" title="2 topics" style="font-size: 11.4054054054pt;">CentOS</a>
+<a href="/tag/cisco/" class="tag-link-4" title="7 topics" style="font-size: 19.3513513514pt;">cisco</a>
+<a href="/tag/cisco-asa/" class="tag-link-13" title="4 topics" style="font-size: 15.5675675676pt;">cisco asa</a>
+<a href="/tag/cleanup/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">cleanup</a>
+<a href="/tag/cli/" class="tag-link-54" title="3 topics" style="font-size: 13.6756756757pt;">cli</a>
+<a href="/tag/cloud/" class="tag-link-117" title="2 topics" style="font-size: 11.4054054054pt;">cloud</a>
+<a href="/tag/configure/" class="tag-link-8" title="1 topic" style="font-size: 8pt;">configure</a>
+<a href="/tag/cost/" class="tag-link-21" title="1 topic" style="font-size: 8pt;">cost</a>
+<a href="/tag/dropbox/" class="tag-link-17" title="1 topic" style="font-size: 8pt;">Dropbox</a>
+<a href="/tag/eigrp/" class="tag-link-29" title="1 topic" style="font-size: 8pt;">eigrp</a>
+<a href="/tag/email/" class="tag-link-56" title="4 topics" style="font-size: 15.5675675676pt;">email</a>
+<a href="/tag/exchange/" class="tag-link-62" title="5 topics" style="font-size: 17.0810810811pt;">exchange</a>
+<a href="/tag/exchange-2007/" class="tag-link-64" title="3 topics" style="font-size: 13.6756756757pt;">exchange 2007</a>
+<a href="/tag/exchange2007/" class="tag-link-118" title="2 topics" style="font-size: 11.4054054054pt;">exchange2007</a>
+<a href="/tag/exchange-2010/" class="tag-link-63" title="2 topics" style="font-size: 11.4054054054pt;">exchange 2010</a>
+<a href="/tag/exchange2010/" class="tag-link-53" title="2 topics" style="font-size: 11.4054054054pt;">exchange2010</a>
+<a href="/tag/gpo/" class="tag-link-58" title="2 topics" style="font-size: 11.4054054054pt;">GPO</a>
+<a href="/tag/how-to/" class="tag-link-23" title="4 topics" style="font-size: 15.5675675676pt;">how to</a>
+<a href="/tag/ldap/" class="tag-link-6" title="1 topic" style="font-size: 8pt;">ldap</a>
+<a href="/tag/lsa/" class="tag-link-24" title="2 topics" style="font-size: 11.4054054054pt;">lsa</a>
+<a href="/tag/lsa-types/" class="tag-link-26" title="1 topic" style="font-size: 8pt;">lsa types</a>
+<a href="/tag/manual/" class="tag-link-147" title="2 topics" style="font-size: 11.4054054054pt;">manual</a>
+<a href="/tag/metric/" class="tag-link-30" title="1 topic" style="font-size: 8pt;">metric</a>
+<a href="/tag/office365/" class="tag-link-55" title="10 topics" style="font-size: 22pt;">office365</a>
+<a href="/tag/ospf/" class="tag-link-20" title="4 topics" style="font-size: 15.5675675676pt;">ospf</a>
+<a href="/tag/portal/" class="tag-link-5" title="1 topic" style="font-size: 8pt;">portal</a>
+<a href="/tag/removal/" class="tag-link-145" title="2 topics" style="font-size: 11.4054054054pt;">removal</a>
+<a href="/tag/securecrt/" class="tag-link-18" title="1 topic" style="font-size: 8pt;">SecureCRT</a>
+<a href="/tag/server/" class="tag-link-7" title="1 topic" style="font-size: 8pt;">server</a>
+<a href="/tag/setup/" class="tag-link-45" title="2 topics" style="font-size: 11.4054054054pt;">setup</a>
+<a href="/tag/ssh/" class="tag-link-42" title="2 topics" style="font-size: 11.4054054054pt;">ssh</a>
+<a href="/tag/synch/" class="tag-link-19" title="1 topic" style="font-size: 8pt;">Synch</a>
+<a href="/tag/types/" class="tag-link-25" title="1 topic" style="font-size: 8pt;">types</a>
+<a href="/tag/video/" class="tag-link-27" title="3 topics" style="font-size: 13.6756756757pt;">video</a>
+<a href="/tag/windows/" class="tag-link-16" title="4 topics" style="font-size: 15.5675675676pt;">windows</a>
+<a href="/tag/windows-xp/" class="tag-link-60" title="2 topics" style="font-size: 11.4054054054pt;">Windows XP</a>
+<a href="/tag/wsus/" class="tag-link-14" title="1 topic" style="font-size: 8pt;">wsus</a></div>
+<!-- Site Meter XHTML Strict 1.0 -->
+</div><div class="clear"></div>
+</div>
+
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configuring the Windows Time Service | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>Configuring the Windows Time Service | JulianBen.com</h1>
+    <time>2014-11-25</time>
+    <div class="content">
+<!DOCTYPE html> 
+<html lang="en-US">
+
+<head>
+
+
+
+
+
+
+<!-- End Wayback Rewrite JS Include -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Configuring the Windows Time Service | JulianBen.com</title>
+		
+	<link rel="pingback" href="http://www.julianben.com/xmlrpc.php"/>
+
+	<!-- HTML5 for IE < 9 -->
+	<!--[if lt IE 9]>
+	
+	<![endif]-->
+
+	
+
+
+
+		
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+
+
+
+<link rel="https://api.w.org/" href="http://www.julianben.com/wp-json/"/>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.julianben.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.julianben.com/wp-includes/wlwmanifest.xml"/> 
+
+
+<meta name="generator" content="WordPress 5.2.3"/>
+
+
+
+
+
+
+	<style type="text/css">
+		a, #comments h3, h3#reply-title {
+			color: #364D96;
+		}
+		
+        ::selection, ::-moz-selection {
+			background: rgba(54,77,150,0.8);
+			color: #fff;
+		}
+		
+		.format-link h2 a, #header-image-div {
+			background: #364D96;
+		}
+		
+		@media screen and (max-width: 850px) {
+			nav ul li a:active, nav ul li a:focus, nav ul li a:hover {
+				background: #364D96;
+			}
+		}
+
+		input[type=submit]:hover, button:hover, .navigation a:hover, input[type=submit]:active, button:active, .navigation a:active, input[type=submit]:focus, button:focus, .navigation a:focus {
+			box-shadow: 0 0 4px rgba(54,77,150,0.8);
+			border: 1px solid rgba(54,77,150,0.8)!important;
+		}
+
+		input:focus, textarea:focus {
+			box-shadow: inset 0 0 3px rgba(54,77,150,0.2);
+			border: 1px solid rgba(54,77,150,0.2);
+		}
+	</style>
+
+
+
+
+
+	<style type="text/css">
+		@media screen and (min-width: 851px) {
+			#headerimage {
+				height: 42px;
+			}
+		}
+	</style>
+
+</head>
+
+<body class="post-template-default single single-post postid-676 single-format-standard">
+<div id="wrapper">
+	<header id="header">
+
+		<section id="head">
+			<form method="get" id="headersearch" action="/">
+				<label class="hidden" for="hs">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="hs"/><input type="submit" id="hsearchsubmit" value="Search"/> 
+				</div>
+			</form>	
+						<h1><a href="/">JulianBen.com</a></h1>
+			<p class="description">Life In IT Service Management</p>
+		</section>
+
+				
+		<button id="showmenu">Menu</button>
+		<form method="get" id="mobilesearch" action="/">
+			<label class="hidden" for="s">Search:</label>
+			<div>
+				<input type="text" value="" name="s" id="s"/><input type="submit" id="searchsubmit" value="Search"/> 
+			</div>
+		</form>
+		
+		<nav id="mobnav">
+			<div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-216" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-216"><a href="/category/adobe/">Adobe</a></li>
+<li id="menu-item-214" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-214"><a href="/category/cisco-2/">Cisco</a></li>
+<li id="menu-item-213" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-213"><a href="/category/office365-2/">Office365</a></li>
+<li id="menu-item-215" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-215"><a href="/category/linux/">Linux</a></li>
+<li id="menu-item-217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-217"><a href="/category/microsoft/">Microsoft</a></li>
+<li id="menu-item-505" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-505"><a href="#">Resume</a></li>
+</ul></div>		</nav>
+
+
+	</header>
+
+	<section id="main">
+
+
+
+	<div id="content">
+
+	
+			<article id="post-676" class="post-676 post type-post status-publish format-standard hentry category-microsoft category-windows-2 tag-configure-windows-time-service tag-time tag-w32 tag-w32time-service-accuracy tag-w32tm tag-w32tm-config-manualpeerlist tag-windows-time-service">	
+
+
+				<div class="title">
+				<h2><a href="/2014/11/25/configuring-the-windows-time-service/" title="Configuring the Windows Time Service">Configuring the Windows Time Service</a></h2>
+			</div>
+		
+	<div class="meta">
+				<a href="/2014/11/25/configuring-the-windows-time-service/">25. November 2014</a> &middot; <a href="/2014/11/25/configuring-the-windows-time-service/#respond">Write a comment</a>		 &middot; Categories: <a href="/category/microsoft/" rel="category tag">Microsoft</a>, <a href="/category/windows-2/" rel="category tag">Windows</a> &middot; Tags: <a href="/tag/configure-windows-time-service/" rel="tag">configure windows time service</a>, <a href="/tag/time/" rel="tag">time</a>, <a href="/tag/w32/" rel="tag">w32</a>, <a href="/tag/w32time-service-accuracy/" rel="tag">W32Time Service Accuracy</a>, <a href="/tag/w32tm/" rel="tag">w32tm</a>, <a href="/tag/w32tm-config-manualpeerlist/" rel="tag">W32tm /config /manualpeerlist</a>, <a href="/tag/windows-time-service/" rel="tag">windows time service</a>			</div>
+
+	<div class="entry">
+		<p><strong>Windows Server Time Sync Configuration</strong></p>
+<p>The following steps can be used to configure DCs the default Windows time service hierarchy in an AD forest.  The procedure will also remove any errors in the Event Viewer, if any existed.</p>
+<p>Do not use if you are using a third party stratum service and refer to the vendor’s documentation for further instructions</p>
+<p><strong>Check and Document the Current Time Configuration on the PDC Emulator<br/>
+</strong><span id="more-676"></span></p>
+<ol>
+<li>First check and document the current configuration:
+<ol>
+<li>All Windows Server domain operating systems – run the following on the forest root domain PDC Emulator.
+<ol>
+<li>Note: In some cases you must wait a little time for the service to instantiate.</li>
+<li>If you do not see expected results immediately, wait 10 min and re-run the following steps</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>W32tm /query /configuration    </strong>
+<ol>
+<li>This command confirms the PDC Emulator shows the current source in the [TimeProviders] section, Look for “Type:” You will see one of the following:
+<ol>
+<li><strong>Type: NT5DS (Local)</strong>   -This means that it’s not synced externally.</li>
+<li><strong>Type: NTP (Local)  &#8211;</strong>This command it is syncing externally.<br/>
+<strong>         NtpServer: time.windows.com [65.55.56.206] (Local)</strong></li>
+</ol>
+</li>
+<li>For all other DCs, use the command, w32tm /monitor (step 4 below)</li>
+</ol>
+</li>
+<li><strong>w32tm /query /source</strong>
+<ol>
+<li>On the PDC Emulator, this shows the actual source. One of two possibilities:
+<ol>
+<li>CMOS clock                    -Signifies not synced to an external source                                                  (Not what you want to see)</li>
+<li><strong>time.windows.com  &#8211;</strong>The NTP source IPaddress/FQDN  This is correct.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>w32tm /monitor </strong>or <strong>w32tm /monitor /computers:DCNAME</strong>
+<ol>
+<li><strong>On the PDC Emulator, t</strong>his command shows the outside time source.
+<ol>
+<li>Good example:<br/>
+<strong>dc01.contoso.com *** PDC ***[10.10.10.200:123]:<br/>
+ICMP: 0ms delay<br/>
+NTP: +0.0000000s offset from dc02.contoso.com<br/>
+RefID: time.windows.com [65.55.56.206]<br/>
+Stratum: 4</strong></li>
+</ol>
+</li>
+<li>On all other DCs, this command shows the current time source DC for this DC.
+<ol>
+<li>You will see an “offset for the PDC from its configured NTP source.</li>
+<li>Good example result showing the DC02 is syncing with dc01.contoso.com:<br/>
+<strong><strong>dc02.contoso.com 10.10.10.210]:<br/>
+ICMP: 0ms delay<br/>
+NTP: +0.0000000s offset from dc01.contoso.com<br/>
+RefID: dc01.contoso.com [10.10.10.200]<br/>
+Stratum: 4</strong></strong></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>w32tm /tz </strong>
+<ol>
+<li>This shows the current time zone to make sure it’s correct.</li>
+</ol>
+</li>
+<li><strong>w32tm /stripchart /computer:</strong> <em>target</em> <strong>/samples:</strong> <em>n</em> <strong>/dataonly</strong>
+<ol>
+<li>This command will show you the time difference between the local computer and a target computer and is helpful in determining if there is an offset. The “<strong><em>n</em></strong>” value is the number of time samples that will be returned from the target to test basic NTP communications.</li>
+</ol>
+</li>
+<li><strong>w32tm /dumpreg</strong>
+<ol>
+<li>This command dumps the current registry settings found in:<br/>
+HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters<br/>
+You can see the current time service configuration entries, such as:<br/>
+Type:  NTP<br/>
+NTPServer:</li>
+</ol>
+</li>
+</ol>
+<h2 style="text-align: center;"><span style="text-decoration: underline;"><strong>Configure time sync to a reliable source on the forest rood domain PDC Emulator ONLY.</strong></span></h2>
+<p style="text-align: center;"><em>Do not perform on any other DC in any domain in the forest. PDC in the forest root only.</em></p>
+<ol>
+<li><strong>Windows 2003 and all newer:</strong>
+<ol>
+<li>Open an Administrator Command Prompt.
+<ol>
+<li>Note that the examples below use either time.windows.com or the pool.ntp.org servers. You can get a full list of reliable time services at:<br/>
+A list of the Simple Network Time Protocol (SNTP) time servers that are available on the Internet: <a href="#">http://support.microsoft.com/kb/262680</a></li>
+</ol>
+</li>
+<li>w32tm /config /manualpeerlist:time.windows.com /syncfromflags:manual /reliable:yes /update<br/>
+OR – if you want to use the pool.ntp.org time source servers:</li>
+<li><span style="color: #993300;"><span style="color: #993300;">W32tm /config /manualpeerlist:0.pool.ntp.org,1.pool.ntp.org,2.pool.ntp.org,0x1 /syncfromflags:manual /reliable:yes /update</span></span></li>
+<li>w32tm /resync /rediscover</li>
+<li>net stop w32time &amp;&amp; net start w32time</li>
+<li>Check it with <span style="color: #993300;">W32tm /query /configuration</span><strong><span style="color: #993300;"> </span>   </strong>
+<ol>
+<li>You may have to repeatedly run it a few times until you see it change from the CMOS clock to the time server you set it to. If it doesn’t change after a few minutes, you may have to reset the time service in the <strong>Contingency</strong> section below.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>Windows 2000:<br/>
+</strong>Generally speaking, the w32tm command is similar to Windows 2003 and newer operating systems.  However, Windows 2000 uses the net time /setsntp method, which was removed in later versions.  There are also some differences between Windows 2000 RTM and various service packs. Therefore, if any issues arise from the commands not setting, it’s recommended to follow the instructions using the registry to configure the time service in Windows 2000:<br/>
+How to configure an authoritative time server in Windows 2000:<br/>
+<a href="#">http://support.microsoft.com/kb/216734</a></p>
+<ol>
+<li>Open an Administrator Command Prompt.</li>
+<li>net time /setsntp:174.140.19.7    – Windows 2000 uses this command to configure an outside source.</li>
+<li>net stop w32time</li>
+<li>w32tm -once      W32tm performs numerous commands. Their results are displayed on the screen.</li>
+<li>net start w32time</li>
+<li>Check it with<strong> W32tm /query /configuration    </strong>
+<ol>
+<li>You may have to repeatedly run it a few times until you see it change from the CMOS clock to the time server you set it to. If it doesn’t change after a few minutes, you may have to reset the time service in the <strong>Contingency</strong> section below</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Use the procedure in Step #1 to check and document the new configuration.</li>
+<li><strong>Contingency</strong>: Perform the steps in the Corrupted Time Service Resolution Section to return the settings back to Windows defaults.</li>
+</ol>
+<p><strong>Configure all other DCs to sync using the forest time hierarchy</strong></p>
+<p>This includes all other DCs in the forest root domain that are not holding the PDC Emulator role, and any DC in any other domains and trees, including the PDC in those domains.</p>
+<p><strong><em>Do NOT run the following on the PDC Emulator in the forest root domain.</em></strong></p>
+<ol>
+<li>First check and document the current configuration: See Section #3 above.</li>
+<li>Windows Server 2003 and all newer server operating systems:
+<ol>
+<li>Open an Administrator Command Prompt</li>
+<li>w32tm /config /syncfromflags:domhier /update /reliable:no</li>
+<li>w32tm /resync /rediscover</li>
+<li>net stop w32time &amp;&amp; net start w32time</li>
+<li>Check it with<strong> W32tm /query /configuration    </strong>
+<ol>
+<li>You may have to repeatedly run it a few times until you see it change from the CMOS clock to the time server you set it to. If it doesn’t change after a few minutes, you may have to reset the time service in the <strong>Contingency</strong> section below</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Windows 2000:<br/>
+For reference with Windows 2000, see the following link for more info:<br/>
+How to configure an authoritative time server in Windows 2000<br/>
+<a href="#">http://support.microsoft.com/kb/216734</a></p>
+<ol>
+<li>Open an Administrator Command Prompt.</li>
+<li>w32tm –s</li>
+<li>Net stop w32time &amp;&amp; net start w32time</li>
+<li>Check it with<strong> W32tm /query /configuration    </strong>
+<ol>
+<li>You may have to repeatedly run it a few times until you see it change from the CMOS clock to the time server you set it to. If it doesn’t change after a few minutes, you may have to reset the time service in the <strong>Contingency</strong> section below</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Use the procedure in Step #1 to check and DOCUMENT the new configuration.</li>
+<li><strong>Contingency: </strong>Perform the steps in the Corrupted Time Service Resolution Section to return the settings back to Windows defaults.</li>
+</ol>
+<p><strong>Time configuration on FSMO transferred or seized DCs</strong></p>
+<ol>
+<li>On the <strong>new forest root domain PDC Emulator</strong>, run the following:
+<ol>
+<li>Open an Administrator command prompt:</li>
+<li>W32tm /config /manualpeerlist:0.pool.ntp.org,1.pool.ntp.org,2.pool.ntp.org /syncfromflags:manual /reliable:yes /update
+<ol>
+<li>Note: time.windows.com is a working time source, however you choose any reliable time services in your locale.</li>
+</ol>
+</li>
+<li>W32tm /resync /rediscover</li>
+<li>net stop w32time &amp;&amp; net start w32time</li>
+<li>Check it with<strong> W32tm /query /configuration    </strong>
+<ol>
+<li>You may have to repeatedly run it a few times until you see it change from the CMOS clock to the time server you set it to. If it doesn’t change after a few minutes, you may have to reset the time service in the <strong>Contingency</strong> section below</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>On the server formerly holding the PDC Emulator role, run the following:
+<ol>
+<li>Open an Administrator command prompt.</li>
+<li>w32tm /config /syncfromflags:domhier /update</li>
+<li>w32tm /resync /rediscover</li>
+<li>net stop w32time &amp;&amp; net start w32time</li>
+<li>Check it with<strong> W32tm /query /configuration    </strong>
+<ol>
+<li>You may have to repeatedly run it a few times until you see it change from the CMOS clock to the time server you set it to. If it doesn’t change after a few minutes, you may have to reset the time service in the <strong>Contingency</strong> section below</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Follow the procedure in Step #1 to check and DOCUMENT the new configuration.</li>
+<li><strong>Contingency</strong>: Perform the steps in the Corrupted Time Service Resolution Section to return the settings back to Windows defaults.</li>
+</ol>
+<p><strong>Corrupted Time Service Resolution Section (Contingency)</strong></p>
+<p>If any of the procedures did not work or event log errors indicate any issues, you can reset the time service registry entries back to default. The procedure should be done on the DC that you are experiencing issues with and not necessarily on each DC.  Note: This procedure can also be used as a contingency to return a DC (PDC and non-PDCs) back to local CMOS time sync.</p>
+<ol>
+<li>On the DC that you’re experiencing issues with, run the following:
+<ol>
+<li>Open an Administrator command prompt.</li>
+<li>net stop w32time</li>
+<li>w32tm /unregister</li>
+<li>w32tm /register</li>
+<li>net start w32time</li>
+<li>Configure the DC according to the configuration sections above depending on if it’s a PDC Emulator or non-PDC Emulator.</li>
+</ol>
+</li>
+<li><strong>The next command is ONLY for Windows 2000 to 2008 DCs</strong>. It does not apply to 2008 R2 or newer and will be ignored if you try it.
+<ol>
+<li>“net time /setsntp: ”      – Do not use the quotes. Note that there’s a blank space prior to the closing quote.<br/>
+This command tells the client (whether a DC or workstation) to delete the current registry settings for time and use default settings.</li>
+<li>net stop w32time &amp;&amp; net start w32time</li>
+<li>Configure the DC according to the configuration sections above depending on if it’s a PDC Emulator or non-PDC Emulator.</li>
+</ol>
+</li>
+</ol>
+<p><strong>W32Time Service Accuracy</strong></p>
+<p>Please bear in mind that the Windows W32Time service is not a full featured, accurate service for time sensitive application requirements, nor will Microsoft support it as such. You must use a third party time service that will support this requirement.</p>
+<p>For more information, please visit the following link:</p>
+<p>Support boundary to configure the Windows Time service for high-accuracy environments<br/>
+<a href="#">http://support.microsoft.com/kb/939322</a></p>
+<p>==================================================================</p>
+<p><strong>References</strong></p>
+<p>How the Windows Time Service Works<br/>
+<a href="#">http://technet.microsoft.com/en-us/library/71e76587-28f4-4272-a3d7-7f44ca50c018</a></p>
+<p>Windows Time Service Technical Reference<br/>
+<a href="#">http://technet.microsoft.com/en-us/library/a0fcd250-e5f7-41b3-b0e8-240f8236e210</a></p>
+<p>Windows Time Service Tools and Settings<br/>
+<em>Includes specific w32tm command switches and registry entries.<br/>
+</em><a href="#">http://technet.microsoft.com/en-us/library/cc773263</a></p>
+<p>&nbsp;</p>
+			</div>
+	
+</article>
+
+			
+			
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+	<div id="comment-form">
+						<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/web/20191023230320/http://www.julianben.com/2014/11/25/configuring-the-windows-time-service/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"/></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"/></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"/></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"/><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"/> <input type="hidden" name="comment_post_ID" value="676" id="comment_post_ID"/>
+<input type="hidden" name="comment_parent" id="comment_parent" value="0"/>
+</p>			</form>
+			</div><!-- #respond -->
+				</div>
+
+	
+	</div>
+	
+<div id="sidebar-bottom">
+	<aside id="sidebar-1" class="sidebar">
+
+		<div id="search-2" class="widget widget_search">			<form method="get" id="sidebarsearch" action="/">
+				<label class="hidden" for="s">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="s"/>
+					<input type="submit" id="searchsubmit" value="Search"/> 
+				</div>
+			</form>	
+</div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widgettitle">Recent Posts</h4>		<ul>
+											<li>
+					<a href="/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/">How to convert partition from MBR to GPT on Windows</a>
+									</li>
+											<li>
+					<a href="/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/">Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test</a>
+									</li>
+											<li>
+					<a href="/2015/10/29/how-to-add-an-smtp-address-in-office365-with-dirsync-adfs-enabled/">How to Add an SMTP address in Office365 with DirSync &#038; ADFS enabled</a>
+									</li>
+											<li>
+					<a href="/2015/03/03/dell-openmanage-server-administrator-on-vmware-esxi-5-5/">Dell OpenManage Server Administrator on VMWare ESXi 5.5</a>
+									</li>
+											<li>
+					<a href="/2015/02/09/unlock-windows-update-locked-due-to-group-policy/">Windows Update locked due to group policy</a>
+									</li>
+					</ul>
+		</div><div id="archives-2" class="widget widget_archive"><h4 class="widgettitle">Archives</h4>		<ul>
+				<li><a href="/2019/10/">October 2019</a></li>
+	<li><a href="/2015/11/">November 2015</a></li>
+	<li><a href="/2015/10/">October 2015</a></li>
+	<li><a href="/2015/03/">March 2015</a></li>
+	<li><a href="/2015/02/">February 2015</a></li>
+	<li><a href="/2014/11/">November 2014</a></li>
+	<li><a href="/2014/07/">July 2014</a></li>
+	<li><a href="/2014/05/">May 2014</a></li>
+	<li><a href="/2014/04/">April 2014</a></li>
+	<li><a href="/2014/02/">February 2014</a></li>
+	<li><a href="/2013/12/">December 2013</a></li>
+	<li><a href="/2013/11/">November 2013</a></li>
+	<li><a href="/2013/08/">August 2013</a></li>
+	<li><a href="/2013/06/">June 2013</a></li>
+	<li><a href="/2013/05/">May 2013</a></li>
+	<li><a href="/2013/04/">April 2013</a></li>
+	<li><a href="/2013/03/">March 2013</a></li>
+	<li><a href="/2013/01/">January 2013</a></li>
+	<li><a href="/2012/12/">December 2012</a></li>
+	<li><a href="/2012/11/">November 2012</a></li>
+	<li><a href="/2012/10/">October 2012</a></li>
+	<li><a href="/2012/09/">September 2012</a></li>
+	<li><a href="/2012/08/">August 2012</a></li>
+	<li><a href="/2012/07/">July 2012</a></li>
+		</ul>
+			</div>
+	</aside>
+
+	<aside id="sidebar-2" class="sidebar">
+
+		
+	</aside>
+</div>
+		</section><!-- end main section -->
+	<footer id="footer">
+		<div class="left">&copy; 2019 JulianBen.com. All rights reserved.</div>
+		<div class="right">Design by picomol. Powered by <a href="#">WordPress</a>.</div>
+	</footer>
+</div>
+		
+
+
+</body>
+</html>
+
+<!--Generated by Endurance Page Cache--><!--
+     FILE ARCHIVED ON 23:03:20 Oct 23, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:56:44 Mar 12, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.713
+  exclusion.robots: 0.085
+  exclusion.robots.policy: 0.074
+  esindex: 0.01
+  cdx.remote: 16.503
+  LoadShardBlock: 316.19 (3)
+  PetaboxLoader3.resolve: 230.728 (4)
+  PetaboxLoader3.datanode: 133.846 (4)
+  load_resource: 147.053
+-->
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

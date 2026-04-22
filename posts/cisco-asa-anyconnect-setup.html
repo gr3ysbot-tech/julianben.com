@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cisco ASA Anyconnect Setup | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>Cisco ASA Anyconnect Setup | JulianBen.com</h1>
+    <time>2012-07-18</time>
+    <div class="content">
+<!DOCTYPE html> 
+<html lang="en-US">
+
+<head>
+
+
+
+
+
+
+<!-- End Wayback Rewrite JS Include -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Cisco ASA Anyconnect Setup | JulianBen.com</title>
+		
+	<link rel="pingback" href="http://www.JulianBen.com/xmlrpc.php"/>
+
+	<!-- HTML5 for IE < 9 -->
+	<!--[if lt IE 9]>
+	
+	<![endif]-->
+
+	
+
+
+
+
+
+
+
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.JulianBen.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.JulianBen.com/wp-includes/wlwmanifest.xml"/> 
+
+
+<meta name="generator" content="WordPress 3.9.1"/>
+
+
+
+
+	<style type="text/css">
+		a, #comments h3, h3#reply-title {
+			color: #a84649;
+		}
+		
+        ::selection, ::-moz-selection {
+			background: rgba(168,70,73,0.8);
+			color: #fff;
+		}
+		
+		.format-link h2 a, #header-image-div {
+			background: #a84649;
+		}
+		
+		@media screen and (max-width: 850px) {
+			nav ul li a:active, nav ul li a:focus, nav ul li a:hover {
+				background: #a84649;
+			}
+		}
+
+		input[type=submit]:hover, button:hover, .navigation a:hover, input[type=submit]:active, button:active, .navigation a:active, input[type=submit]:focus, button:focus, .navigation a:focus {
+			box-shadow: 0 0 4px rgba(168,70,73,0.8);
+			border: 1px solid rgba(168,70,73,0.8)!important;
+		}
+
+		input:focus, textarea:focus {
+			box-shadow: inset 0 0 3px rgba(168,70,73,0.2);
+			border: 1px solid rgba(168,70,73,0.2);
+		}
+	</style>
+
+
+
+
+	<style type="text/css">
+		#wrapper {
+			background: #fff;
+		}
+
+		nav {
+			border-left: none;
+			border-right: none;
+		}
+	</style>
+
+	<style type="text/css">
+		@media screen and (min-width: 851px) {
+			#headerimage {
+				height: 42px;
+			}
+		}
+	</style>
+
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #353535; }
+</style>
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Cisco ASA Anyconnect Setup"/>
+<meta property="og:url" content="/2012/07/18/cisco-asa-anyconnect-setup/"/>
+<meta property="og:description" content="Getting Started with Cisco Anyconnect by Paul Stewart, CCIE 26009 (Security) For the last few years, Cisco has been attempting to do away with what they call the Cisco EZVPN client. This has been t..."/>
+<meta property="article:published_time" content="2012-07-18T04:29:00+00:00"/>
+<meta property="article:modified_time" content="2013-03-23T04:21:33+00:00"/>
+<meta property="article:author" content="http://www.JulianBen.com/author/zorg/"/>
+<meta property="og:site_name" content="JulianBen.com"/>
+<meta property="og:image" content="#"/>
+<meta property="og:image" content="#"/>
+<meta property="og:image" content="#"/>
+<meta property="og:image" content="#"/>
+<meta property="og:image" content="#"/>
+<meta name="twitter:site" content="@jetpack"/>
+<meta name="twitter:image" content="#"/>
+<meta name="twitter:card" content="summary"/>
+</head>
+
+<body class="single single-post postid-28 single-format-standard custom-background">
+<div id="wrapper">
+	<header id="header">
+
+		<section id="head">
+			<form method="get" id="headersearch" action="/">
+				<label class="hidden" for="hs">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="hs"/><input type="submit" id="hsearchsubmit" value="Search"/> 
+				</div>
+			</form>	
+						<h1><a href="/">JulianBen.com</a></h1>
+			<p class="description">Life in IT Service Management</p>
+		</section>
+
+				
+		<button id="showmenu">Menu</button>
+		<form method="get" id="mobilesearch" action="/">
+			<label class="hidden" for="s">Search:</label>
+			<div>
+				<input type="text" value="" name="s" id="s"/><input type="submit" id="searchsubmit" value="Search"/> 
+			</div>
+		</form>
+		
+		<nav id="mobnav">
+			<div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-286" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-286"><a href="/category/adobe/">Adobe</a></li>
+<li id="menu-item-270" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-270"><a href="/category/cisco-2/">Cisco</a></li>
+<li id="menu-item-269" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-269"><a href="/category/office365-2/">Office365</a></li>
+<li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-285"><a href="/category/linux/">Linux</a></li>
+<li id="menu-item-288" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-288"><a href="/category/microsoft/">Microsoft</a></li>
+<li id="menu-item-579" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-579"><a href="#">Resume</a></li>
+</ul></div>		</nav>
+
+
+	</header>
+
+	<section id="main">
+
+
+
+	<div id="content">
+
+	
+			<article id="post-28" class="post-28 post type-post status-publish format-standard hentry category-cisco-2 tag-anyconnect tag-asa tag-config tag-setup">	
+
+
+				<div class="title">
+				<h2><a href="/2012/07/18/cisco-asa-anyconnect-setup/" title="Cisco ASA Anyconnect Setup">Cisco ASA Anyconnect Setup</a></h2>
+			</div>
+		
+	<div class="meta">
+				<a href="/2012/07/18/cisco-asa-anyconnect-setup/">18. July 2012</a> &middot; <a href="/2012/07/18/cisco-asa-anyconnect-setup/#respond" title="Comment on Cisco ASA Anyconnect Setup">Write a comment</a>		 &middot; Categories: <a href="/category/cisco-2/" title="View all posts in Cisco" rel="category tag">Cisco</a> &middot; Tags: <a href="/tag/anyconnect/" rel="tag">anyconnect</a>, <a href="/tag/asa/" rel="tag">asa</a>, <a href="/tag/config/" rel="tag">config</a>, <a href="/tag/setup/" rel="tag">setup</a>			</div>
+
+	<div class="entry">
+		<h1 class="entry-title">Getting Started with Cisco Anyconnect</h1>
+<div class="entry-meta"><span class="meta-prep meta-prep-author">by</span> <span class="author vcard"><a class="url fn n" title="View all posts by Paul Stewart, CCIE 26009 (Security)" href="#" target="_blank">Paul Stewart, CCIE 26009 (Security)</a></span></div>
+<p>For the last few years, Cisco has been attempting to do away with what they call the Cisco EZVPN client. This has been the solution used by many corporate users in the mobile workforce for secure access to enterprise data. The need for mobility certainly isn’t going away and Cisco has a new solution for this called Anyconnect. While the EZVPN client used IPSec, Anyconnect uses SSL to create a secure tunnel. From the wire, this connection looks very much like accessing any ecommerce site and alleviates some of the challenges of using IPSec in an adhoc basis. In this article, we will start with a very basic ASA configuration and add a very basic Anyconnect configurations. There is actually a command that we can use to show us many of the configuration steps. We will also look at some of the additional items that typically need to be configured to achieve a basic Anyconnect environment.</p>
+<p>Let’s start with the simplest possible ASA configuration. This can be achieved by using the “configure factory-default” command followed by configuring an outside IP address and default route. The relevant configuration is posted below. This output is from an ASA5505, so it uses VLANs as the layer 3 interfaces.</p>
+<pre>!
+interface Ethernet0/0
+switchport access vlan 2
+!
+interface Ethernet0/1
+!
+!
+interface Vlan1
+ name if inside
+ security-level 100
+ ip address 192.168.1.1 255.255.255.0
+!
+interface Vlan2
+ name if outside
+ security-level 0
+ ip address 192.0.2.2 255.255.255.0
+!
+!
+global (outside) 1 interface
+nat (inside) 1 0.0.0.0 0.0.0.0
+route outside 0.0.0.0 0.0.0.0 192.0.2.1 1 ! !</pre>
+<p>The configuration above is sufficient in order to achieve the NAT and Firewall configuration for the following image.</p>
+<p><a class="thickbox no_icon" title="ASA Anyconnect" href="#" target="_blank" rel="gallery-766"><img class="alignnone size-full wp-image-778" alt="" src="#" width="702" height="266"/></a></p>
+<p><span id="more-28"></span><br/>
+Our challenge now is to configure a remote access VPN using Anyconnect for the mobile user. As I previously mentioned, the ASA has a command that will get us on the right track. This is the global configuration command “vpnsetup ssl-remote-access steps”. This command doesn’t do anything to the configuration, but is a way to see many of the steps necessary. It is good information to copy and paste into your favorite text editor.</p>
+<pre>ciscoasa(config)# vpnsetup ssl-remote-access steps 
+
+Steps to configure a remote access SSL VPN remote access connection and AnyConnect with examples:
+
+1. Configure and enable interface
+
+	interface GigabitEthernet0/0
+	 ip address 10.10.4.200 255.255.255.0
+	 nameif outside
+	 no shutdown
+
+	interface GigabitEthernet0/1
+	 ip address 192.168.0.20 255.255.255.0
+	 nameif inside
+	 no shutdown
+
+2. Enable WebVPN on the interface
+
+	webvpn
+	 enable outside
+
+3. Configure default route
+
+	route outside 0.0.0.0 0.0.0.0 10.10.4.200
+
+4. Configure AAA authentication and tunnel group
+
+	tunnel-group DefaultWEBVPNGroup type remote-access
+	tunnel-group DefaultWEBVPNGroup general-attributes
+	 authentication-server-group LOCAL
+
+5. If using LOCAL database, add users to the Database
+
+	username test password t3stP@ssw0rd
+	username test attributes
+	 service-type remote-access
+
+Proceed to configure AnyConnect VPN client:
+
+6. Point the ASA to an AnyConnect image
+
+	webvpn
+	 svc image anyconnect-win-2.1.0148-k9.pkg
+
+7. enable AnyConnect
+
+	svc enable
+
+8. Add an address pool to assign an ip address to the AnyConnect client
+
+        ip local pool client-pool 192.168.1.1-192.168.1.254 mask 255.255.255.0
+
+9. Configure group policy
+
+	group-policy DfltGrpPolicy internal
+	group-policy DfltGrpPolicy attributes
+	 vpn-tunnel-protocol svc webvpn</pre>
+<p>In many of the commands above, we find reference to “svc”. In previous versions, Anyconnect was known as the SSL VPN Client (aka SVC). Some people also refer to it as the SSL Thick Client. Of these commands, we will need to make some modifications. First of all, we don’t need to do steps 1 or 3 at all. Our basic ASA configuration already had IP addresses configured and a default gateway. So let’s go through the other seven remaining steps.</p>
+<p>First, we simply need to enable SSL VPN on the outside interface. This will enable our ASA to listen for connections to TCP port 443 for SSL/TLS and UDP port 443 for the preferred DTLS. When DTLS fails, the Anyconnect client utilizes SSL/DTLS</p>
+<pre>webvpn
+ enable outside</pre>
+<p>The next set of commands that it looks like we should implement are found in step four.</p>
+<pre>tunnel-group DefaultWEBVPNGroup type remote-access
+tunnel-group DefaultWEBVPNGroup general-attributes
+ authentication-server-group LOCAL</pre>
+<p>These commands will throw some warnings and are unnecessary because they are the default. Even if you enter them, you cannot see the output without doing “show running-config all”. Notice there is no output for “show running-config tunnel-group” even after entering the commands.</p>
+<pre>ciscoasa(config)# tunnel-group DefaultWEBVPNGroup type remote-access
+                                                  ^
+ERROR: % Invalid input detected at '^' marker.
+ciscoasa(config)#
+ciscoasa(config)# tunnel-group DefaultWEBVPNGroup general-attributes
+ciscoasa(config-tunnel-general)#  authentication-server-group LOCAL
+WARNING: local database is empty! Use 'username' command to define local users.
+
+ciscoasa(config-tunnel-general)# show run tunnel-group
+ciscoasa(config-tunnel-general)# exit
+ciscoasa(config)# show run tunnel-group
+ciscoasa(config)# show run all tunnel-group 
+
+tunnel-group DefaultWEBVPNGroup general-attributes
+ no address-pool
+ no ipv6-address-pool
+ authentication-server-group LOCAL
+
+ciscoasa(config)#</pre>
+<p>So we could have basically skipped this step. Cisco actually left out a critical configuration regarding the address pool attachment to the tunnel group, but we will return to that in a minute.</p>
+<p>The next step is to configure a username and password. In the enterprise, we usually offload this to Radius or LDAP so the users can access the VPN using their primary credentials. In this case we’ll actually configure the username and password directly on the ASA. It is important to set their service type to “remote-access”. This keeps them from getting a shell prompt on the firewall.</p>
+<pre>username test password t3stP@ssw0rd
+username test attributes
+ service-type remote-access</pre>
+<p>We will combine the next two steps. This is configuring the software image(s) that are to be used for the Anyconnect clients. The reason I said image(s) is that most environments need to support more than just Windows. The appropriate images can be downloaded from Cisco using your TAC credentials. Our configuration example will use the sequence numbers to demonstrate how to use multiple images. Also worth mentioning is that this “webvpn” should be entered from global configuration mode. If you are in user configuration mode from the previous step, webvpn is a subcommand in user attributes. So to get into the proper context, exit to global configuration mode.</p>
+<pre>webvpn
+ svc image disk0:anyconnect-win-2.3.0254-k9.pkg 1
+ svc image disk0:yourmacimage.dmg 2
+ svc enable</pre>
+<p>Since this is a remote access VPN, the clients will need IP addresses. I always use a network range that is different than the interfaces on the ASA. Since the example pool will overlap with our internal address, we will change the addresses. Be careful to use a start AND end address. If an end address is not included, the pool only contains the single address listed.</p>
+<pre>ip local pool client-pool 192.168.2.1-192.168.2.254 mask 255.255.255.0</pre>
+<p>The final step in the example is to enable the default group policy for Anyconnect (aka SVC). The first command below is actually a default and will produce an error telling us this.</p>
+<pre>ciscoasa(config)# group-policy DfltGrpPolicy internal
+ERROR: Group Policy DfltGrpPolicy already exists.
+ERROR: Failed to add group-policy DfltGrpPolicy
+ciscoasa(config)#
+ciscoasa(config)# group-policy DfltGrpPolicy attributes
+ciscoasa(config-group-policy)#
+ciscoasa(config-group-policy)#  vpn-tunnel-protocol svc webvpn</pre>
+<h2>Additional Tasks</h2>
+<p><strong> Attach The Address Pool</strong></p>
+<p>So what else? Cisco left a couple of things out of their configuration steps. The first thing is related to the ‘ip local pool’. Notice that it is called “client-pool”. However, “client-pool” isn’t attached to anything. Let’s attach it to our “DefaultWEBVPNGroup” tunnel-group.</p>
+<pre>tunnel-group DefaultWEBVPNGroup general-attributes
+ address-pool client-pool</pre>
+<p><strong>NAT Exemption</strong></p>
+<p>The next thing that is necessary based on our initial configuration is a nat exemption rule. Without this, traffic going toward the Anyconnect clients will be source address translated like all Internet bound traffic. That behavior causes the connections that go through the tunnel to be broken. To enable NAT exemption and resolve this, we create an ACL that identifies the traffic and attach it to a “nat 0″ rule to instruct the ASA not to NAT the traffic.</p>
+<pre>access-list NONAT extended permit ip 192.168.1.0 255.255.255.0 192.168.2.0 255.255.255.0
+
+nat (inside) 0 access-list NONAT</pre>
+<p><strong>DNS</strong></p>
+<p>Another thing that may need to be considered is if the corporate DNS server and domain name should be used. If so, the following commands would instruct the Anyconnect clients to direct all requests to the indicated DNS server.</p>
+<pre>group-policy DfltGrpPolicy attributes
+ dns-server value
+ default-domain value</pre>
+<p><strong>Split Tunneling</strong></p>
+<p>The default configuration tunnels all traffic back to the ASA by manipulating the PC’s routing table with a default route through the Anyconnect tunnel. This is often considered a more secure method since it may keep the vpn endpoint from participating in a botnet while it is connected to the vpn. If the situation dictates that the remote users have direct access to the internet, split tunneling needs to be configured. This requires creating a standard acl that indicates the networks to be tunneled. This route or routes is what is passed to VPN client and subsequently the client PC’s routing table. Whatever matches these entries are tunneled back to the ASA (as opposed to tunneling everything back to the ASA). Like the dns settings, the split tunnel acl is then attached to the group-policy.</p>
+<pre>access-list SPLIT standard permit 192.168.1.0 255.255.255.0
+
+group-policy DfltGrpPolicy attributes
+ split-tunnel-policy tunnelspecified
+ split-tunnel-network value SPLIT</pre>
+<p><strong>Autolaunch Anyconnect</strong></p>
+<p>This initial configuration allows users to connect to the outside of the ASA via https. Once connected, they will have the choice to launch an Anyconnect session. If users are only using Anyconnect, the ASA can auto launch that for the users upon connection. To set Anyconnect as the default and launch it automatically, enter the following commands.</p>
+<pre>group-policy DfltGrpPolicy attributes
+ webvpn
+  svc ask none default svc</pre>
+<p><strong>Self Signed Certificates</strong></p>
+<p>The final thing that I would mention is that the ASA has a habit of regenerating its certificate with each reboot. Ideally, we would use a trusted third party CA (like GoDaddy, Thawte, Verisign, Entrust, Comodo, etc) to decrease the possibility for a man-in-the-middle attack against VPN users and to produce a better end user experience. However, if a self-signed certificate is the only option, it should be statically configured and attached to the outside interface.</p>
+<pre>ciscoasa(config)# crypto ca trustpoint SELF
+ciscoasa(config-ca-trustpoint)# enroll
+ciscoasa(config-ca-trustpoint)# enrollment self
+ciscoasa(config-ca-trustpoint)# fqdn myasa.mydom.com
+ciscoasa(config-ca-trustpoint)# subject cn=myasa.mydom.com,dc=mycom,dc=com
+ciscoasa(config-ca-trustpoint)# exit
+ciscoasa(config)# crypto ca enroll SELF
+WARNING: The certificate enrollment is configured with an fqdn
+that differs from the system fqdn. If this certificate will be
+used for VPN authentication this may cause connection problems.
+
+Would you like to continue with this enrollment? [yes/no]: yes
+
+% The fully-qualified domain name in the certificate will be: myasa.mydom.com
+
+% Include the device serial number in the subject name? [yes/no]: no
+
+Generate Self-Signed Certificate? [yes/no]: yes
+ciscoasa(config)# ssl trust-point SELF outside</pre>
+<p>If you want to look at the certificate, the “show crypto ca certificates SELF” will show the certificate associated with the trustpoint “SELF”.</p>
+<pre>ciscoasa(config)# show crypto ca certificates SELF
+Certificate
+  Status: Available
+  Certificate Serial Number: 2c873d4f
+  Certificate Usage: General Purpose
+  Public Key Type: RSA (1024 bits)
+  Issuer Name:
+    hostname=myasa.mydom.com
+    cn=myasa.mydom.com
+    dc=mycom
+    dc=com
+  Subject Name:
+    hostname=myasa.mydom.com
+    cn=myasa.mydom.com
+    dc=mycom
+    dc=com
+  Validity Date:
+    start date: 00:47:47 UTC Feb 18 2012
+    end   date: 00:47:47 UTC Feb 15 2022
+  Associated Trustpoints: SELF</pre>
+<h2>Final Configuration</h2>
+<p>Our final configuration looks like the following.</p>
+<pre>ciscoasa# show run
+!
+
+!
+interface Ethernet0/0
+ switchport access vlan 2
+!
+interface Ethernet0/1
+!
+!
+
+!
+interface Vlan1
+ nameif inside
+ security-level 100
+ ip address 192.168.1.1 255.255.255.0
+!
+interface Vlan2
+ nameif outside
+ security-level 0
+ ip address 192.0.2.2 255.255.255.0
+!
+access-list NONAT extended permit ip 192.168.1.0 255.255.255.0 192.168.2.0 255.255.255.0
+access-list SPLIT standard permit 192.168.1.0 255.255.255.0
+!
+
+!
+ip local pool client-pool 192.168.2.1-192.168.2.254 mask 255.255.255.0
+!
+
+!
+global (outside) 1 interface
+nat (inside) 0 access-list NONAT
+nat (inside) 1 0.0.0.0 0.0.0.0
+route outside 0.0.0.0 0.0.0.0 192.0.2.1 1
+!
+
+!
+crypto ca trustpoint SELF
+ enrollment self
+ fqdn myasa.mydom.com
+ subject-name cn=myasa.mydom.com,dc=mycom,dc=com
+ crl configure
+crypto ca certificate chain SELF
+ certificate 2c873d4f
+    30820243 308201ac a0030201 0202042c 873d4f30 0d06092a 864886f7 0d010105
+    05003066 31133011 060a0992 268993f2 2c640119 1603636f 6d311530 13060a09
+    92268993 f22c6401 1916056d 79636f6d 31183016 06035504 03130f6d 79617361
+    2e6d7964 6f6d2e63 6f6d311e 301c0609 2a864886 f70d0109 02160f6d 79617361
+    2e6d7964 6f6d2e63 6f6d301e 170d3132 30323138 30303437 34375a17 0d323230
+    32313530 30343734 375a3066 31133011 060a0992 268993f2 2c640119 1603636f
+    6d311530 13060a09 92268993 f22c6401 1916056d 79636f6d 31183016 06035504
+    03130f6d 79617361 2e6d7964 6f6d2e63 6f6d311e 301c0609 2a864886 f70d0109
+    02160f6d 79617361 2e6d7964 6f6d2e63 6f6d3081 9f300d06 092a8648 86f70d01
+    01010500 03818d00 30818902 818100c4 2824ae16 affee400 8df62cb3 d6b94269
+    3720ba46 61941b9e e97b7663 fe70b570 9660b396 58e57d2e 71b692d3 1ca62053
+    0b366da0 41efcc82 e2345d5c fda52514 ccce7a75 0fd98ec7 b72d8d7d 358ce7c4
+    1e20a06f 53a6ec61 13b870dc 30bfba54 7c416b26 a1247933 2839c955 7421bdc4
+    cb7201b1 d9c77999 28059050 d84b6302 03010001 300d0609 2a864886 f70d0101
+    05050003 81810065 9c1dd7b1 3c304910 01779541 0ee21e87 758c2f12 d98bd60f
+    1778550a b5dd986d d170f841 7ea48921 aed59caa b3211f7e 41fac227 f1da9bcb
+    9ba86bb3 d8ce32e3 bd8684af 33a9a828 b158221b 0ced4f13 4ff81b76 cb3d2f0b
+    43cd8e84 5f2b262e 862d4708 0443f6a3 2f956b5e 7eda1240 7bdcdd2b d84b0f06
+    06738adb f364e3
+  quit
+
+ssl trust-point SELF outside
+webvpn
+ enable outside
+ svc image disk0:/anyconnect-win-2.3.0254-k9.pkg 1
+ svc image disk0:/macimg.dmg 2
+group-policy DfltGrpPolicy attributes
+ dns-server value 192.168.1.100
+ vpn-tunnel-protocol svc webvpn
+ split-tunnel-policy tunnelspecified
+ split-tunnel-network-list value SPLIT
+ default-domain value mydomain.com
+username test password YnRg/dbHpQ2tGlTq encrypted
+username test attributes
+ service-type remote-access
+tunnel-group DefaultWEBVPNGroup general-attributes
+ address-pool client-pool</pre>
+<p><strong>Testing our Configuration</strong></p>
+<p>To test this configuration, we simply need to point the outside user’s web browser to the url that represents the outside of the ASA.  For example “https://192.0.2.2″ or preferably “https://myasa.example.com”. The user should be presented a login prompt. After authenticating, Anyconnect will attempt to install. The user may be prompted to accept this a couple of times. After Anyconnect installs, it will launch and connect. To test connectivity, the user can ping something inside (192.168.1.5 in this example is an inside host).</p>
+<p><a class="thickbox no_icon" title="ping" href="#" target="_blank" rel="gallery-766"><img class="alignnone size-full wp-image-787" alt="" src="#" width="489" height="191"/></a></p>
+<p>To further inspect the Anyconnect client, the user can double click the lock in the system tray. When it opens, a tabbed view will be presented. On the statistics tab, the “Datails” button presents a more verbose view.</p>
+<p><a class="thickbox no_icon" title="Anyconnect1" href="#" target="_blank" rel="gallery-766"><img class="alignnone size-full wp-image-788" alt="" src="#" width="329" height="457"/></a></p>
+<p>Within this view the statistics tab will show input and output statistics which might provide clues if there are any issues.</p>
+<p><a class="thickbox no_icon" title="Anyconnect2" href="#" target="_blank" rel="gallery-766"><img class="alignnone size-full wp-image-789" alt="" src="#" width="463" height="435"/></a></p>
+<p>The route tab show which destinations would have tunneled traffic. This should look familiar. It is derived from the split tunnel configuration.</p>
+<p><a class="thickbox no_icon" title="Anyconnect3" href="#" target="_blank" rel="gallery-766"><img class="alignnone size-full wp-image-791" alt="" src="#" width="470" height="427"/></a></p>
+<p>This article covered very basic Anyconnect configuration. In future articles, I hope to go into more detail about certificate configuration, migration to 8.4 and AAA authentication.</p>
+			</div>
+	
+</article>
+
+			
+			
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+	<div id="comment-form">
+													<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/web/20140608153933/http://www.julianben.com/2012/07/18/cisco-asa-anyconnect-setup/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																			<p class="comment-notes">Your email address will not be published.</p>							<p class="comment-form-author"><label for="author">Name</label> <input id="author" name="author" type="text" value="" size="30"/></p>
+<p class="comment-form-email"><label for="email">Email</label> <input id="email" name="email" type="text" value="" size="30"/></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30"/></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment"/>
+							<input type="hidden" name="comment_post_ID" value="28" id="comment_post_ID"/>
+<input type="hidden" name="comment_parent" id="comment_parent" value="0"/>
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="596854089d"/></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"/> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"/> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="113"/></p>					</form>
+							</div><!-- #respond -->
+						</div>
+
+	
+	</div>
+	
+<div id="sidebar-bottom">
+	<aside id="sidebar-1" class="sidebar">
+
+				<div id="recent-posts-4" class="widget widget_recent_entries">		<h4 class="widgettitle">Most Recent</h4>		<ul>
+					<li>
+				<a href="/2014/05/03/no-remote-desktop-licence-server-availible-on-rd-session-host-server-2012/">No remote Desktop Licence Server availible on RD Session Host server 2012</a>
+						</li>
+					<li>
+				<a href="/2014/04/24/creating-read-only-user-accounts-on-cisco-asa5500/">Creating Read-Only User Accounts on Cisco ASA5500</a>
+						</li>
+					<li>
+				<a href="/2014/04/17/openssl-heartbeat-heartbleed-vulnerability-cve-2014-0160-and-its-high-level-mechanics-2/">OpenSSL Heartbeat (Heartbleed) Vulnerability (CVE-2014-0160) and its High-Level Mechanics</a>
+						</li>
+					<li>
+				<a href="/2014/02/26/browser-not-supported-ie10-ie11-remote-desktop-services-2008-r2/">Browser Not Supported, IE10, IE11 &#8211; Remote Desktop Services 2008 R2</a>
+						</li>
+					<li>
+				<a href="/2014/02/10/automatic-backup-with-freefilesync/">Automatic Backups with FreeFileSync</a>
+						</li>
+				</ul>
+		</div><div id="linkcat-2" class="widget widget_links"><h4 class="widgettitle">Blogroll</h4>
+	<ul class="xoxo blogroll">
+<li><a href="#">CCIE Flyer</a></li>
+<li><a href="#">CCIE Journey</a></li>
+<li><a href="#">CCNP Security</a></li>
+<li><a href="#">EtherealMind</a></li>
+<li><a href="#">Gomjabbar</a></li>
+<li><a href="#">Hacking Cisco</a></li>
+<li><a href="#">INE Blog</a></li>
+<li><a href="#">IPExpert Blog</a></li>
+<li><a href="#">LoveMyTool</a></li>
+<li><a href="#">Networks Training</a></li>
+<li><a href="#">Packet Life</a></li>
+<li><a href="#">Packet Pushers</a></li>
+<li><a href="#">PacketU</a></li>
+<li><a href="#">RouterFreak</a></li>
+<li><a href="#" target="_blank">Tekcert</a></li>
+<li><a href="#">The Networking Nerd</a></li>
+
+	</ul>
+</div>
+<div id="tag_cloud-2" class="widget widget_tag_cloud"><h4 class="widgettitle">Tags</h4><div class="tagcloud"><a href="/tag/2008/" class="tag-link-106" title="2 topics" style="font-size: 11.405405405405pt;">2008</a>
+<a href="/tag/2008-r2/" class="tag-link-105" title="3 topics" style="font-size: 13.675675675676pt;">2008 r2</a>
+<a href="/tag/5500/" class="tag-link-11" title="2 topics" style="font-size: 11.405405405405pt;">5500</a>
+<a href="/tag/5505/" class="tag-link-12" title="4 topics" style="font-size: 15.567567567568pt;">5505</a>
+<a href="/tag/active-directory/" class="tag-link-9" title="1 topic" style="font-size: 8pt;">active directory</a>
+<a href="/tag/anyconnect/" class="tag-link-3" title="3 topics" style="font-size: 13.675675675676pt;">anyconnect</a>
+<a href="/tag/asa/" class="tag-link-10" title="9 topics" style="font-size: 21.243243243243pt;">asa</a>
+<a href="/tag/asa5505/" class="tag-link-69" title="4 topics" style="font-size: 15.567567567568pt;">asa5505</a>
+<a href="/tag/calculate/" class="tag-link-22" title="2 topics" style="font-size: 11.405405405405pt;">calculate</a>
+<a href="/tag/centos/" class="tag-link-88" title="2 topics" style="font-size: 11.405405405405pt;">CentOS</a>
+<a href="/tag/cisco/" class="tag-link-4" title="10 topics" style="font-size: 22pt;">cisco</a>
+<a href="/tag/cisco-asa/" class="tag-link-13" title="5 topics" style="font-size: 17.081081081081pt;">cisco asa</a>
+<a href="/tag/cleanup/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">cleanup</a>
+<a href="/tag/cli/" class="tag-link-54" title="3 topics" style="font-size: 13.675675675676pt;">cli</a>
+<a href="/tag/cloud/" class="tag-link-117" title="2 topics" style="font-size: 11.405405405405pt;">cloud</a>
+<a href="/tag/configure/" class="tag-link-8" title="2 topics" style="font-size: 11.405405405405pt;">configure</a>
+<a href="/tag/dropbox/" class="tag-link-17" title="1 topic" style="font-size: 8pt;">Dropbox</a>
+<a href="/tag/email/" class="tag-link-56" title="4 topics" style="font-size: 15.567567567568pt;">email</a>
+<a href="/tag/exchange/" class="tag-link-62" title="5 topics" style="font-size: 17.081081081081pt;">exchange</a>
+<a href="/tag/exchange-2007/" class="tag-link-64" title="4 topics" style="font-size: 15.567567567568pt;">exchange 2007</a>
+<a href="/tag/exchange2007/" class="tag-link-118" title="2 topics" style="font-size: 11.405405405405pt;">exchange2007</a>
+<a href="/tag/exchange2010/" class="tag-link-53" title="2 topics" style="font-size: 11.405405405405pt;">exchange2010</a>
+<a href="/tag/exchange-2010/" class="tag-link-63" title="2 topics" style="font-size: 11.405405405405pt;">exchange 2010</a>
+<a href="/tag/gpo/" class="tag-link-58" title="2 topics" style="font-size: 11.405405405405pt;">GPO</a>
+<a href="/tag/how-to/" class="tag-link-23" title="5 topics" style="font-size: 17.081081081081pt;">how to</a>
+<a href="/tag/ldap/" class="tag-link-6" title="1 topic" style="font-size: 8pt;">ldap</a>
+<a href="/tag/lsa/" class="tag-link-24" title="2 topics" style="font-size: 11.405405405405pt;">lsa</a>
+<a href="/tag/manual/" class="tag-link-147" title="2 topics" style="font-size: 11.405405405405pt;">manual</a>
+<a href="/tag/migration/" class="tag-link-126" title="2 topics" style="font-size: 11.405405405405pt;">migration</a>
+<a href="/tag/office365/" class="tag-link-55" title="10 topics" style="font-size: 22pt;">office365</a>
+<a href="/tag/ospf/" class="tag-link-20" title="4 topics" style="font-size: 15.567567567568pt;">ospf</a>
+<a href="/tag/portal/" class="tag-link-5" title="1 topic" style="font-size: 8pt;">portal</a>
+<a href="/tag/rds/" class="tag-link-198" title="2 topics" style="font-size: 11.405405405405pt;">rds</a>
+<a href="/tag/read-only/" class="tag-link-122" title="2 topics" style="font-size: 11.405405405405pt;">read only</a>
+<a href="/tag/remote-desktop/" class="tag-link-199" title="2 topics" style="font-size: 11.405405405405pt;">remote desktop</a>
+<a href="/tag/removal/" class="tag-link-145" title="2 topics" style="font-size: 11.405405405405pt;">removal</a>
+<a href="/tag/server/" class="tag-link-7" title="2 topics" style="font-size: 11.405405405405pt;">server</a>
+<a href="/tag/setup/" class="tag-link-45" title="2 topics" style="font-size: 11.405405405405pt;">setup</a>
+<a href="/tag/ssh/" class="tag-link-42" title="2 topics" style="font-size: 11.405405405405pt;">ssh</a>
+<a href="/tag/video/" class="tag-link-27" title="3 topics" style="font-size: 13.675675675676pt;">video</a>
+<a href="/tag/win2k12/" class="tag-link-174" title="2 topics" style="font-size: 11.405405405405pt;">win2k12</a>
+<a href="/tag/windows/" class="tag-link-16" title="5 topics" style="font-size: 17.081081081081pt;">windows</a>
+<a href="/tag/windows-2012/" class="tag-link-173" title="3 topics" style="font-size: 13.675675675676pt;">Windows 2012</a>
+<a href="/tag/windows-xp/" class="tag-link-60" title="2 topics" style="font-size: 11.405405405405pt;">Windows XP</a>
+<a href="/tag/wsus/" class="tag-link-14" title="1 topic" style="font-size: 8pt;">wsus</a></div>
+</div>
+	</aside>
+
+	<aside id="sidebar-2" class="sidebar">
+
+		
+	</aside>
+</div>
+		</section><!-- end main section -->
+	<footer id="footer">
+		<div class="left">&copy; 2014 JulianBen.com. All rights reserved.</div>
+		<div class="right">Design by picomol. Powered by <a href="#">WordPress</a>.</div>
+	</footer>
+</div>
+			<div style="display:none">
+	</div>
+
+
+
+
+
+	
+	
+</body>
+</html>
+<!--
+     FILE ARCHIVED ON 15:39:33 Jun 08, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:55:41 Mar 12, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.578
+  exclusion.robots: 0.055
+  exclusion.robots.policy: 0.046
+  esindex: 0.007
+  cdx.remote: 1069.227
+  LoadShardBlock: 158.87 (3)
+  PetaboxLoader3.datanode: 171.603 (5)
+  PetaboxLoader3.resolve: 125.629 (2)
+  load_resource: 144.234 (2)
+-->
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

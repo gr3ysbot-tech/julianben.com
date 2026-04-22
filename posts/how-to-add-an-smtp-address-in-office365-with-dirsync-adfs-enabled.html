@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Add an SMTP address in Office365 with DirSync &#038; ADFS enabled | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>How to Add an SMTP address in Office365 with DirSync &#038; ADFS enabled | JulianBen.com</h1>
+    <time>2015-10-29</time>
+    <div class="content">
+
+<p>If you are synchronizing an Office 365 account with an on-premises Active Directory, you know that you cannot edit exchange user properties using the Office 365 administrator portal.  In this article, I will show you how to add e-mail aliases using the Active Directory Service Interfaces Editor (adsiedit).</p>
+<ol>
+<li>Go to Start &gt; Run and type <em>adsiedit.msc</em></li>
+<li>Now, find the unit where your AD user’s reside</li>
+<li>Right click the user you want to edit and click <em>Properties</em>.</li>
+<li>Find the variable <strong>proxyAddresses</strong> – this is the one you want to edit.<br/>
+When you add new e-mail aliases, you want to make sure that your primary e-mail address will start with upper-case SMTP. Your aliases, aka, secondary addresses should be lower-case smtp.For example, I want my primary e-mail address to be firstnamelastname@example.com<br/>
+In the proxyAddresses attribute, I would put:<br/>
+SMTP:firstnamelastname@example.com<br/>
+As my alias, I want firstname.lastname@example.com… to do this, I will use lower case smtp:<br/>
+smtp:firstname.lastname@example.com</li>
+</ol>
+<p>Apply the new settings and wait for your active directory to be synchronised with Office 365 (by default this happens every 3 hours)</p>
+</div>
+			
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

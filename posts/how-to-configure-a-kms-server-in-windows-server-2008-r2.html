@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to configure a KMS server in Windows Server 2008 R2 | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>How to configure a KMS server in Windows Server 2008 R2 | JulianBen.com</h1>
+    <time>2013-08-24</time>
+    <div class="content">
+<!DOCTYPE html> 
+<html lang="en-US">
+
+<head>
+
+
+
+
+
+
+<!-- End Wayback Rewrite JS Include -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>How to configure a KMS server in Windows Server 2008 R2 | JulianBen.com</title>
+		
+	<link rel="pingback" href="http://www.julianben.com/xmlrpc.php"/>
+
+	<!-- HTML5 for IE < 9 -->
+	<!--[if lt IE 9]>
+	
+	<![endif]-->
+
+	
+
+
+
+		
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+
+
+
+<link rel="https://api.w.org/" href="http://www.julianben.com/wp-json/"/>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.julianben.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.julianben.com/wp-includes/wlwmanifest.xml"/> 
+
+
+<meta name="generator" content="WordPress 5.2.3"/>
+
+
+
+
+
+
+	<style type="text/css">
+		a, #comments h3, h3#reply-title {
+			color: #364D96;
+		}
+		
+        ::selection, ::-moz-selection {
+			background: rgba(54,77,150,0.8);
+			color: #fff;
+		}
+		
+		.format-link h2 a, #header-image-div {
+			background: #364D96;
+		}
+		
+		@media screen and (max-width: 850px) {
+			nav ul li a:active, nav ul li a:focus, nav ul li a:hover {
+				background: #364D96;
+			}
+		}
+
+		input[type=submit]:hover, button:hover, .navigation a:hover, input[type=submit]:active, button:active, .navigation a:active, input[type=submit]:focus, button:focus, .navigation a:focus {
+			box-shadow: 0 0 4px rgba(54,77,150,0.8);
+			border: 1px solid rgba(54,77,150,0.8)!important;
+		}
+
+		input:focus, textarea:focus {
+			box-shadow: inset 0 0 3px rgba(54,77,150,0.2);
+			border: 1px solid rgba(54,77,150,0.2);
+		}
+	</style>
+
+
+
+
+
+	<style type="text/css">
+		@media screen and (min-width: 851px) {
+			#headerimage {
+				height: 42px;
+			}
+		}
+	</style>
+
+</head>
+
+<body class="post-template-default single single-post postid-539 single-format-standard">
+<div id="wrapper">
+	<header id="header">
+
+		<section id="head">
+			<form method="get" id="headersearch" action="/">
+				<label class="hidden" for="hs">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="hs"/><input type="submit" id="hsearchsubmit" value="Search"/> 
+				</div>
+			</form>	
+						<h1><a href="/">JulianBen.com</a></h1>
+			<p class="description">Life In IT Service Management</p>
+		</section>
+
+				
+		<button id="showmenu">Menu</button>
+		<form method="get" id="mobilesearch" action="/">
+			<label class="hidden" for="s">Search:</label>
+			<div>
+				<input type="text" value="" name="s" id="s"/><input type="submit" id="searchsubmit" value="Search"/> 
+			</div>
+		</form>
+		
+		<nav id="mobnav">
+			<div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-216" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-216"><a href="/category/adobe/">Adobe</a></li>
+<li id="menu-item-214" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-214"><a href="/category/cisco-2/">Cisco</a></li>
+<li id="menu-item-213" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-213"><a href="/category/office365-2/">Office365</a></li>
+<li id="menu-item-215" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-215"><a href="/category/linux/">Linux</a></li>
+<li id="menu-item-217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-217"><a href="/category/microsoft/">Microsoft</a></li>
+<li id="menu-item-505" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-505"><a href="#">Resume</a></li>
+</ul></div>		</nav>
+
+
+	</header>
+
+	<section id="main">
+
+
+
+	<div id="content">
+
+	
+			<article id="post-539" class="post-539 post type-post status-publish format-standard hentry category-microsoft category-windows-2 tag-2008-r2 tag-configure tag-how-to tag-key-management-server tag-kms tag-windows-server-2008">	
+
+
+				<div class="title">
+				<h2><a href="/2013/08/24/how-to-configure-a-kms-server-in-windows-server-2008-r2/" title="How to configure a KMS server in Windows Server 2008 R2">How to configure a KMS server in Windows Server 2008 R2</a></h2>
+			</div>
+		
+	<div class="meta">
+				<a href="/2013/08/24/how-to-configure-a-kms-server-in-windows-server-2008-r2/">24. August 2013</a> &middot; <a href="/2013/08/24/how-to-configure-a-kms-server-in-windows-server-2008-r2/#respond">Write a comment</a>		 &middot; Categories: <a href="/category/microsoft/" rel="category tag">Microsoft</a>, <a href="/category/windows-2/" rel="category tag">Windows</a> &middot; Tags: <a href="/tag/2008-r2/" rel="tag">2008 r2</a>, <a href="/tag/configure/" rel="tag">configure</a>, <a href="/tag/how-to/" rel="tag">how to</a>, <a href="/tag/key-management-server/" rel="tag">key management server</a>, <a href="/tag/kms/" rel="tag">kms</a>, <a href="/tag/windows-server-2008/" rel="tag">windows server 2008</a>			</div>
+
+	<div class="entry">
+		<h3>Installing first KMS Serve<em></em>r</h3>
+<p>Below are the steps I used to install the KMS server. We determined that due to the number of client activations, and the capacity of our infrastructure we had no problems installing this server on our secondary domain controller. From here on we will call it DC1.<em></em></p>
+<ol>
+<li>On the Domain Controller we run CMD with elevation</li>
+<li>Type <em>slmgr /ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx where the last section is the Key from your volume licensing website.<br/>
+</em></li>
+<li>Open “Windows Firewall with Advanced Security” via Start menu -&gt; Administrative Tools.</li>
+<li>Under <em>Inbound Rules</em> scroll down to “Key Management Service (TCP-In)”, right click and select enable.</li>
+<li>Reboot the machine – note you can restart the Software Licensing service but I preferred to reboot it (seeing as the server was not in use for anything else)<br/>
+<span id="more-539"></span></p>
+<pre title="">net stop sppsvc &amp;&amp; net start sppsvc</pre>
+</li>
+<li>Activate server after reboot. This can be done via the GUI or by executing the following command from an elevated command prompt:
+<pre title="">slmgr.vbs /ato</pre>
+</li>
+<li>Enables automatic DNS publishing by the KMS host by entering the below command in an elevated command promt. Note this should already be enabled, but just in case, we execute the command.
+<pre title="">slmgr /sdns</pre>
+</li>
+</ol>
+<p>Now you are done installing your KMS server.Note this will provide activation for clients and/or servers depending on the KMS key you used to activate DC1. Office KMS activation will be covered in a later section.</p>
+<p>I do recommend verifying that the SRV record in DNS is created. Note that you should have no problems with the automatic creation if you are using the vanilla install of AD and have no specific security restrictions in DNS. To verify that the DNS record has been created open up DNS and check. Refer to the screenshot below to see where it lives:<br/>
+<img title="SLMGR DNS config" alt="" src="#" width="400" height="354" data-recalc-dims="1"/></p>
+<h3>Installing Office KMS Host</h3>
+<p>As mentioned above we have determined that the one KMS box (DC1) is suitable to do all of our activations for Microsoft products, so now we have to configure the Office KMS host on DC1. To do this we do the following:</p>
+<ol>
+<li>Log onto https://www.microsoft.com/licensing/servicecenter/ and fetch your key: <em>“Office 2010 Suites and Apps KMS” – Note your key may be similar. If unsure speak to your Microsoft Account Manager.<br/>
+</em></li>
+<li>Download the Office 2010 KMS Host License Pack from the Microsoft website: <a title="Microsoft Office 2010 KMS Host License Pack" href="#" target="_blank" rel="noopener noreferrer">http://www.microsoft.com/downloads/en/details.aspx?displaylang=en&amp;FamilyID=97b7b710-6831-4ce5-9ff5-fdc21fe8d965</a>. Its only 903kb so wont take too long.</li>
+<li>Execute KeyManagementServiceHost.exe from your existing KMS server&gt; In our case its DC1. Follow the prompt to finish the setup process.</li>
+<li>When prompted enter the KMS key for Office 2010.</li>
+</ol>
+<p>Thats it. Just as easy to setup. Now you are ready to activate Office 2010 with KMS. To help monitor this, please refer the the section below.</p>
+<h3>Administering the KMS server</h3>
+<p>I take it now you want to see whether it works and if clients can be activated. Now i will go into administering the KMS server, which will be quite brief as there is not much to it, and is really only there to aid in troubleshooting, and to have a sticky beak when implementing it. Once its running there is no real reason to keep going in and checking up on it.</p>
+<p>All functions to view settings and make changes are done through the already used VBS script slmgr.vbs. To see all the commands simply run slmgr from the command prompt. Note to execute changes you will need elevated command prompt. You will see the following screens:</p>
+<p><img title="slmgr help screen 1" alt="" src="#" data-recalc-dims="1"/><img title="slmgr help screen 2" alt="" src="#" data-recalc-dims="1"/><img title="slmgr help screen 3" alt="" src="#" data-recalc-dims="1"/><img title="slmgr help screen 4" alt="" src="#" data-recalc-dims="1"/></p>
+<p>So the most common command that i used were:</p>
+<p>Displays license information (KMS Activation Count)</p>
+<pre title="">cscript slmgr.vbs /dli</pre>
+<p>Displays detailed license information</p>
+<pre title="">cscript slmgr.vbs /dlv all</pre>
+<p>For Office specific information you can run the below command to get the info wanted:</p>
+<pre title="">cscript slmgr.vbs /dlv bfe7a195-4f8f-4f0b-a622-cf13c7d16864</pre>
+<p>Note I add cscript to the front of the command so that the output stays within the command window, this lets me output/scroll if there is a lot of data where as the usual vbs dialog crops the output.</p>
+<h3>Configuring KMS Clients</h3>
+<p>By default, Volume Licensing edition of Windows Vista, Windows 7 , Windows Server 2008, and Windows Server 2008 R2 are KMS clients. If the computers the organisation wants to activate using KMS are using any of these operating systems and the network allows DNS auto-discovery, no further configuration is needed.</p>
+<p>If required you can configure the KMS client to connect to a specific KMS host, use a specific port and disable KMS auto-discovery.</p>
+<p>When deploying KMS clients using WAIK you can use 2 different methods to prepare the client:</p>
+<ul>
+<li>SYSPREP – run Sysprep /generalize which will reset the activation timer along with removing SID and a few other settings. Read about this before actually using it.</li>
+<li>Software License Manager – run slmgr.vbs /rearm in an elevated command prompt to reset the grace period back to 30 days. Note you can only perform this 3 times in total.</li>
+</ul>
+<p>You can also manually force activation of the client by using the GUI from Control Panel -&gt; System or by running slmgr /ato.</p>
+<p>If you want to convert MAK installations of Windows or Office to KMS, you need to change their product key, and then reactivate. Use the below keys to perform this:</p>
+<table>
+<tbody>
+<tr>
+<th>Operating system edition</th>
+<th>Product key</th>
+</tr>
+<tr>
+<td colspan="2"><strong>Windows 7</strong></td>
+</tr>
+<tr>
+<td>Windows 7 Professional</td>
+<td>FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4</td>
+</tr>
+<tr>
+<td>Windows 7 Professional N</td>
+<td>MRPKT-YTG23-K7D7T-X2JMM-QY7MG</td>
+</tr>
+<tr>
+<td>Windows 7 Enterprise</td>
+<td>33PXH-7Y6KF-2VJC9-XBBR8-HVTHH</td>
+</tr>
+<tr>
+<td>Windows 7 Enterprise N</td>
+<td>YDRBP-3D83W-TY26F-D46B2-XCKRJ</td>
+</tr>
+<tr>
+<td colspan="2"><strong>Windows Server 2008 R2</strong></td>
+</tr>
+<tr>
+<td>Windows Server 2008 R2 HPC Edition</td>
+<td>FKJQ8-TMCVP-FRMR7-4WR42-3JCD7</td>
+</tr>
+<tr>
+<td>Windows Server 2008 R2 Datacenter</td>
+<td>74YFP-3QFB3-KQT8W-PMXWJ-7M648</td>
+</tr>
+<tr>
+<td>Windows Server 2008 R2 Enterprise</td>
+<td>489J6-VHDMP-X63PK-3K798-CPX3Y</td>
+</tr>
+<tr>
+<td>Windows Server 2008 R2 for Itanium-Based Systems</td>
+<td>GT63C-RJFQ3-4GMB6-BRFB9-CB83V</td>
+</tr>
+<tr>
+<td>Windows Server 2008 R2 Standard</td>
+<td>YC6KT-GKW9T-YTKYR-T4X34-R7VHC</td>
+</tr>
+<tr>
+<td>Windows Web Server 2008 R2</td>
+<td>6TPJF-RBVHG-WBW2R-86QPH-6RTM4</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td colspan="3"><strong>Office 2010 Suites</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Office Professional Plus 2010</td>
+<td>VYBBJ-TRJPB-QFQRF-QFT4D-H3GVB</td>
+</tr>
+<tr>
+<td></td>
+<td>Office Standard 2010</td>
+<td>V7QKV-4XVVR-XYV4D-F7DFM-8R6BM</td>
+</tr>
+<tr>
+<td></td>
+<td>Office Home and Business 2010</td>
+<td>D6QFG-VBYP2-XQHM7-J97RH-VVRCK</td>
+</tr>
+<tr>
+<td colspan="3"><strong>Office 2010 Stand-alone products</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Access 2010</td>
+<td>V7Y44-9T38C-R2VJK-666HK-T7DDX</td>
+</tr>
+<tr>
+<td></td>
+<td>Excel 2010</td>
+<td>H62QG-HXVKF-PP4HP-66KMR-CW9BM</td>
+</tr>
+<tr>
+<td></td>
+<td>SharePoint Workspace 2010</td>
+<td>QYYW6-QP4CB-MBV6G-HYMCJ-4T3J4</td>
+</tr>
+<tr>
+<td></td>
+<td>InfoPath 2010</td>
+<td>K96W8-67RPQ-62T9Y-J8FQJ-BT37T</td>
+</tr>
+<tr>
+<td></td>
+<td>OneNote 2010</td>
+<td>Q4Y4M-RHWJM-PY37F-MTKWH-D3XHX</td>
+</tr>
+<tr>
+<td></td>
+<td>Outlook 2010</td>
+<td>7YDC2-CWM8M-RRTJC-8MDVC-X3DWQ</td>
+</tr>
+<tr>
+<td></td>
+<td>PowerPoint 2010</td>
+<td>RC8FX-88JRY-3PF7C-X8P67-P4VTT</td>
+</tr>
+<tr>
+<td></td>
+<td>Project Professional 2010</td>
+<td>YGX6F-PGV49-PGW3J-9BTGG-VHKC6</td>
+</tr>
+<tr>
+<td></td>
+<td>Project Standard 2010</td>
+<td>4HP3K-88W3F-W2K3D-6677X-F9PGB</td>
+</tr>
+<tr>
+<td></td>
+<td>Publisher 2010</td>
+<td>BFK7F-9MYHM-V68C7-DRQ66-83YTP</td>
+</tr>
+<tr>
+<td></td>
+<td>Word 2010</td>
+<td>HVHB3-C6FV7-KQX9W-YQG79-CRY7T</td>
+</tr>
+<tr>
+<td colspan="3"><strong>Visio 2010<br/>
+</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>Visio Premium 2010</td>
+<td>D9DWC-HPYVV-JGF4P-BTWQB-WX8BJ</td>
+</tr>
+<tr>
+<td></td>
+<td>Visio Professional 2010</td>
+<td>7MCW8-VRQVK-G677T-PDJCM-Q8TCP</td>
+</tr>
+<tr>
+<td></td>
+<td>Visio Standard 2010</td>
+<td>767HD-QGMWX-8QTDB-9G3R2-KHFGJ</td>
+</tr>
+</tbody>
+</table>
+<p>You can convert Windows and Office from MAC to KMS using the GUI available, or you can use the following commands:</p>
+<p><strong>Windows</strong><br/>
+To install a KMS key, type <strong>slmgr.vbs /ipk <em>KmsKey</em></strong> at a command prompt.<br/>
+To active online, type <strong>slmgr.vbs /ato</strong> at a command prompt.<br/>
+To activate by using the telephone, type <strong>slui.exe 4</strong> at a command prompt.</p>
+<p><strong>Office</strong><br/>
+To install a KMS key, type <strong>ospp.vbs /inpkey:<em>KmsKey</em></strong> at a command prompt.<br/>
+To active online, type <strong>ospp.vbs /act</strong> at a command prompt.</p>
+<h3>Important Links</h3>
+<p>Here are the resources that I got most of the information I needed.</p>
+<ul>
+<li>Deploying KMS Activation<br/>
+<a title="http://technet.microsoft.com/en-us/library/ff793409.aspx" href="#" target="_blank" rel="noopener noreferrer">http://technet.microsoft.com/en-us/library/ff793409.aspx</a></li>
+<li>How to install or Update KMS on Server 2008 for windows 7 and Server 2008 Support<br/>
+<a title="http://myitforum.com/cs2/blogs/jmarcum/archive/2009/10/29/142586.aspx" href="#" target="_blank" rel="noopener noreferrer">http://myitforum.com/cs2/blogs/jmarcum/archive/2009/10/29/142586.aspx</a></li>
+<li>Plan volume activation of Office 2010<br/>
+<a title="http://technet.microsoft.com/en-us/library/ee624358.aspx" href="#" target="_blank" rel="noopener noreferrer">http://technet.microsoft.com/en-us/library/ee624358.aspx</a></li>
+<li>Deploy volume activation of Office 201<br/>
+<a title="http://technet.microsoft.com/en-us/library/ee624357.aspx" href="#" target="_blank" rel="noopener noreferrer">http://technet.microsoft.com/en-us/library/ee624357.aspx</a></li>
+<li>Troubleshoot volume activation for Office 2010<br/>
+<a title="http://technet.microsoft.com/en-us/library/ee624355.aspx" href="#" target="_blank" rel="noopener noreferrer">http://technet.microsoft.com/en-us/library/ee624355.aspx</a></li>
+<li>Tools to configure client computers in Office 2010<br/>
+<a title="http://technet.microsoft.com/en-us/library/ee624350.aspx" href="#" target="_blank" rel="noopener noreferrer">http://technet.microsoft.com/en-us/library/ee624350.aspx</a></li>
+</ul>
+			</div>
+	
+</article>
+
+			
+			
+			<!-- If comments are closed. -->
+		<p class="nocomments">Comments closed</p>
+
+	
+
+
+	
+	</div>
+	
+<div id="sidebar-bottom">
+	<aside id="sidebar-1" class="sidebar">
+
+		<div id="search-2" class="widget widget_search">			<form method="get" id="sidebarsearch" action="/">
+				<label class="hidden" for="s">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="s"/>
+					<input type="submit" id="searchsubmit" value="Search"/> 
+				</div>
+			</form>	
+</div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widgettitle">Recent Posts</h4>		<ul>
+											<li>
+					<a href="/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/">How to convert partition from MBR to GPT on Windows</a>
+									</li>
+											<li>
+					<a href="/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/">Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test</a>
+									</li>
+											<li>
+					<a href="/2015/10/29/how-to-add-an-smtp-address-in-office365-with-dirsync-adfs-enabled/">How to Add an SMTP address in Office365 with DirSync &#038; ADFS enabled</a>
+									</li>
+											<li>
+					<a href="/2015/03/03/dell-openmanage-server-administrator-on-vmware-esxi-5-5/">Dell OpenManage Server Administrator on VMWare ESXi 5.5</a>
+									</li>
+											<li>
+					<a href="/2015/02/09/unlock-windows-update-locked-due-to-group-policy/">Windows Update locked due to group policy</a>
+									</li>
+					</ul>
+		</div><div id="archives-2" class="widget widget_archive"><h4 class="widgettitle">Archives</h4>		<ul>
+				<li><a href="/2019/10/">October 2019</a></li>
+	<li><a href="/2015/11/">November 2015</a></li>
+	<li><a href="/2015/10/">October 2015</a></li>
+	<li><a href="/2015/03/">March 2015</a></li>
+	<li><a href="/2015/02/">February 2015</a></li>
+	<li><a href="/2014/11/">November 2014</a></li>
+	<li><a href="/2014/07/">July 2014</a></li>
+	<li><a href="/2014/05/">May 2014</a></li>
+	<li><a href="/2014/04/">April 2014</a></li>
+	<li><a href="/2014/02/">February 2014</a></li>
+	<li><a href="/2013/12/">December 2013</a></li>
+	<li><a href="/2013/11/">November 2013</a></li>
+	<li><a href="/2013/08/">August 2013</a></li>
+	<li><a href="/2013/06/">June 2013</a></li>
+	<li><a href="/2013/05/">May 2013</a></li>
+	<li><a href="/2013/04/">April 2013</a></li>
+	<li><a href="/2013/03/">March 2013</a></li>
+	<li><a href="/2013/01/">January 2013</a></li>
+	<li><a href="/2012/12/">December 2012</a></li>
+	<li><a href="/2012/11/">November 2012</a></li>
+	<li><a href="/2012/10/">October 2012</a></li>
+	<li><a href="/2012/09/">September 2012</a></li>
+	<li><a href="/2012/08/">August 2012</a></li>
+	<li><a href="/2012/07/">July 2012</a></li>
+		</ul>
+			</div>
+	</aside>
+
+	<aside id="sidebar-2" class="sidebar">
+
+		
+	</aside>
+</div>
+		</section><!-- end main section -->
+	<footer id="footer">
+		<div class="left">&copy; 2019 JulianBen.com. All rights reserved.</div>
+		<div class="right">Design by picomol. Powered by <a href="#">WordPress</a>.</div>
+	</footer>
+</div>
+		
+
+
+</body>
+</html>
+
+<!--Generated by Endurance Page Cache--><!--
+     FILE ARCHIVED ON 23:58:35 Oct 23, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:56:09 Mar 12, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.72
+  exclusion.robots: 0.116
+  exclusion.robots.policy: 0.104
+  esindex: 0.01
+  cdx.remote: 18.016
+  LoadShardBlock: 144.306 (3)
+  PetaboxLoader3.datanode: 196.69 (4)
+  PetaboxLoader3.resolve: 104.675 (2)
+  load_resource: 184.615
+-->
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

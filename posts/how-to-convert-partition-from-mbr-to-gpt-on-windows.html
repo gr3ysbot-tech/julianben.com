@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to convert partition from MBR to GPT on Windows | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>How to convert partition from MBR to GPT on Windows | JulianBen.com</h1>
+    <time>2019-10-07</time>
+    <div class="content">
+<!DOCTYPE html> 
+<html lang="en-US">
+
+<head>
+
+
+
+
+
+
+<!-- End Wayback Rewrite JS Include -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>How to convert partition from MBR to GPT on Windows | JulianBen.com</title>
+		
+	<link rel="pingback" href="http://www.julianben.com/xmlrpc.php"/>
+
+	<!-- HTML5 for IE < 9 -->
+	<!--[if lt IE 9]>
+	
+	<![endif]-->
+
+	
+
+
+
+		
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+
+
+
+<link rel="https://api.w.org/" href="http://www.julianben.com/wp-json/"/>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.julianben.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.julianben.com/wp-includes/wlwmanifest.xml"/> 
+
+<meta name="generator" content="WordPress 5.2.3"/>
+
+
+
+
+
+
+	<style type="text/css">
+		a, #comments h3, h3#reply-title {
+			color: #364D96;
+		}
+		
+        ::selection, ::-moz-selection {
+			background: rgba(54,77,150,0.8);
+			color: #fff;
+		}
+		
+		.format-link h2 a, #header-image-div {
+			background: #364D96;
+		}
+		
+		@media screen and (max-width: 850px) {
+			nav ul li a:active, nav ul li a:focus, nav ul li a:hover {
+				background: #364D96;
+			}
+		}
+
+		input[type=submit]:hover, button:hover, .navigation a:hover, input[type=submit]:active, button:active, .navigation a:active, input[type=submit]:focus, button:focus, .navigation a:focus {
+			box-shadow: 0 0 4px rgba(54,77,150,0.8);
+			border: 1px solid rgba(54,77,150,0.8)!important;
+		}
+
+		input:focus, textarea:focus {
+			box-shadow: inset 0 0 3px rgba(54,77,150,0.2);
+			border: 1px solid rgba(54,77,150,0.2);
+		}
+	</style>
+
+
+
+
+
+	<style type="text/css">
+		@media screen and (min-width: 851px) {
+			#headerimage {
+				height: 42px;
+			}
+		}
+	</style>
+
+</head>
+
+<body class="post-template-default single single-post postid-718 single-format-standard">
+<div id="wrapper">
+	<header id="header">
+
+		<section id="head">
+			<form method="get" id="headersearch" action="/">
+				<label class="hidden" for="hs">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="hs"/><input type="submit" id="hsearchsubmit" value="Search"/> 
+				</div>
+			</form>	
+						<h1><a href="/">JulianBen.com</a></h1>
+			<p class="description">Life In IT Service Management</p>
+		</section>
+
+				
+		<button id="showmenu">Menu</button>
+		<form method="get" id="mobilesearch" action="/">
+			<label class="hidden" for="s">Search:</label>
+			<div>
+				<input type="text" value="" name="s" id="s"/><input type="submit" id="searchsubmit" value="Search"/> 
+			</div>
+		</form>
+		
+		<nav id="mobnav">
+			<div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-216" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-216"><a href="/category/adobe/">Adobe</a></li>
+<li id="menu-item-214" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-214"><a href="/category/cisco-2/">Cisco</a></li>
+<li id="menu-item-213" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-213"><a href="/category/office365-2/">Office365</a></li>
+<li id="menu-item-215" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-215"><a href="/category/linux/">Linux</a></li>
+<li id="menu-item-217" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-217"><a href="/category/microsoft/">Microsoft</a></li>
+<li id="menu-item-505" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-505"><a href="#">Resume</a></li>
+</ul></div>		</nav>
+
+
+	</header>
+
+	<section id="main">
+
+
+
+	<div id="content">
+
+	
+			<article id="post-718" class="post-718 post type-post status-publish format-standard hentry category-uncategorized tag-convert-mbr tag-gpt tag-gptgen tag-mbr tag-mbr-to-gpt">	
+
+
+				<div class="title">
+				<h2><a href="/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/" title="How to convert partition from MBR to GPT on Windows">How to convert partition from MBR to GPT on Windows</a></h2>
+			</div>
+		
+	<div class="meta">
+				<a href="/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/">07. October 2019</a> &middot; <a href="/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/#respond">Write a comment</a>		 &middot; Categories: <a href="/category/uncategorized/" rel="category tag">Uncategorized</a> &middot; Tags: <a href="/tag/convert-mbr/" rel="tag">convert mbr</a>, <a href="/tag/gpt/" rel="tag">gpt</a>, <a href="/tag/gptgen/" rel="tag">gptgen</a>, <a href="/tag/mbr/" rel="tag">mbr</a>, <a href="/tag/mbr-to-gpt/" rel="tag">mbr to gpt</a>			</div>
+
+	<div class="entry">
+		
+<p>You need to convert MBR partition to GPT (GUID Partition Table) which introduces some new features, like:</p>
+
+
+
+<ul><li>Address range expanded from 2<sup>32</sup>&nbsp;to 2<sup>64</sup>&nbsp;sectors which enables partition sizes larger than 2TB (assuming 512 sectors)</li><li>More than 4 partitions per disk. MBR was limited to 4, GPT defaults to 128, but can be increased.</li><li>Fully supported by UEFI BIOS system. Actually you need to have UEFI BIOS to be able to boot from GPT disk.</li><li>More at&nbsp;<a href="#">wiki</a></li></ul>
+
+
+
+<p>There is, however a small command line utility designed especially for that purpose, it is called&nbsp;<a href="#">GPTGen</a>.</p>
+
+
+
+<p>To convert using this utility you have to know the physical number of your hard drive</p>
+
+
+
+<ul><li>Open up command prompt as Administrator</li><li>Type diskpart and press Enter</li><li>Type list disk and press Enter</li></ul>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img src="#" alt="DiskPart List disk"/></figure></div>
+
+
+
+<ul><li>Note the disk number you want to convert</li><li>Navigate to where you have extracted GPTGen</li><li>Run command gptgen.exe -w \\.\physicaldriveX  where X is Disk number from Diskpart and press Enter</li><li>Now it’s good idea to reboot, then after reboot run check disk on converted disk just in case.</li></ul>
+
+
+
+<p>That’s all.</p>
+
+
+
+<p>Now you can extend partition to 2<sup>64</sup>&nbsp;sectors. Assuming you have a legacy disk/scheme with 512bytes sectors, that gives&nbsp;maximum size is 9.4&nbsp;<a href="#">ZB</a>&nbsp;(9.4&nbsp;× 10<sup>21</sup>&nbsp;bytes) or 8&nbsp;<a href="#">ZiB</a>&nbsp;(9,444,732,965,739,290,427,392 bytes, coming from 18,446,744,073,709,551,616 (2<sup>64</sup>) sectors&nbsp;× 512 (2<sup>9</sup>) bytes per sector) but in real world Windows cuts this to 256TB per partition which in my opinion is more than enough.</p>
+
+
+
+<p>With GPT disk scheme you must have UEFI compatible BIOS or install special MBR-to-GPT&nbsp;boot loader in order to be able boot Windows from GPT disk, but this is another story…</p>
+			</div>
+	
+</article>
+
+			
+			
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+	<div id="comment-form">
+						<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/web/20191024002256/http://www.julianben.com/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"/></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"/></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"/></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"/><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"/> <input type="hidden" name="comment_post_ID" value="718" id="comment_post_ID"/>
+<input type="hidden" name="comment_parent" id="comment_parent" value="0"/>
+</p>			</form>
+			</div><!-- #respond -->
+				</div>
+
+	
+	</div>
+	
+<div id="sidebar-bottom">
+	<aside id="sidebar-1" class="sidebar">
+
+		<div id="search-2" class="widget widget_search">			<form method="get" id="sidebarsearch" action="/">
+				<label class="hidden" for="s">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="s"/>
+					<input type="submit" id="searchsubmit" value="Search"/> 
+				</div>
+			</form>	
+</div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widgettitle">Recent Posts</h4>		<ul>
+											<li>
+					<a href="/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/">How to convert partition from MBR to GPT on Windows</a>
+									</li>
+											<li>
+					<a href="/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/">Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test</a>
+									</li>
+											<li>
+					<a href="/2015/10/29/how-to-add-an-smtp-address-in-office365-with-dirsync-adfs-enabled/">How to Add an SMTP address in Office365 with DirSync &#038; ADFS enabled</a>
+									</li>
+											<li>
+					<a href="/2015/03/03/dell-openmanage-server-administrator-on-vmware-esxi-5-5/">Dell OpenManage Server Administrator on VMWare ESXi 5.5</a>
+									</li>
+											<li>
+					<a href="/2015/02/09/unlock-windows-update-locked-due-to-group-policy/">Windows Update locked due to group policy</a>
+									</li>
+					</ul>
+		</div><div id="archives-2" class="widget widget_archive"><h4 class="widgettitle">Archives</h4>		<ul>
+				<li><a href="/2019/10/">October 2019</a></li>
+	<li><a href="/2015/11/">November 2015</a></li>
+	<li><a href="/2015/10/">October 2015</a></li>
+	<li><a href="/2015/03/">March 2015</a></li>
+	<li><a href="/2015/02/">February 2015</a></li>
+	<li><a href="/2014/11/">November 2014</a></li>
+	<li><a href="/2014/07/">July 2014</a></li>
+	<li><a href="/2014/05/">May 2014</a></li>
+	<li><a href="/2014/04/">April 2014</a></li>
+	<li><a href="/2014/02/">February 2014</a></li>
+	<li><a href="/2013/12/">December 2013</a></li>
+	<li><a href="/2013/11/">November 2013</a></li>
+	<li><a href="/2013/08/">August 2013</a></li>
+	<li><a href="/2013/06/">June 2013</a></li>
+	<li><a href="/2013/05/">May 2013</a></li>
+	<li><a href="/2013/04/">April 2013</a></li>
+	<li><a href="/2013/03/">March 2013</a></li>
+	<li><a href="/2013/01/">January 2013</a></li>
+	<li><a href="/2012/12/">December 2012</a></li>
+	<li><a href="/2012/11/">November 2012</a></li>
+	<li><a href="/2012/10/">October 2012</a></li>
+	<li><a href="/2012/09/">September 2012</a></li>
+	<li><a href="/2012/08/">August 2012</a></li>
+	<li><a href="/2012/07/">July 2012</a></li>
+		</ul>
+			</div>
+	</aside>
+
+	<aside id="sidebar-2" class="sidebar">
+
+		
+	</aside>
+</div>
+		</section><!-- end main section -->
+	<footer id="footer">
+		<div class="left">&copy; 2019 JulianBen.com. All rights reserved.</div>
+		<div class="right">Design by picomol. Powered by <a href="#">WordPress</a>.</div>
+	</footer>
+</div>
+		
+
+
+</body>
+</html>
+
+<!--Generated by Endurance Page Cache--><!--
+     FILE ARCHIVED ON 00:22:56 Oct 24, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:56:55 Mar 12, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.696
+  exclusion.robots: 0.102
+  exclusion.robots.policy: 0.09
+  esindex: 0.009
+  cdx.remote: 56.247
+  LoadShardBlock: 369.912 (3)
+  PetaboxLoader3.datanode: 169.481 (4)
+  PetaboxLoader3.resolve: 281.966 (3)
+  load_resource: 128.71
+-->
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

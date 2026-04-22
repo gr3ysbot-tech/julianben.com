@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Win 2012 R2 WDS Fix &#8211; 0XC000000F &#8211; required file is missing or contains errors (winload.exe) | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>Win 2012 R2 WDS Fix &#8211; 0XC000000F &#8211; required file is missing or contains errors (winload.exe) | JulianBen.com</h1>
+    <time>2014-11-04</time>
+    <div class="content">
+<!DOCTYPE html> 
+<html lang="en-US">
+
+<head>
+
+
+
+
+
+
+<!-- End Wayback Rewrite JS Include -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Win 2012 R2 WDS Fix &#8211; 0XC000000F &#8211; required file is missing or contains errors (winload.exe) | JulianBen.com</title>
+		
+	<link rel="pingback" href="http://www.julianben.com/xmlrpc.php"/>
+
+	<!-- HTML5 for IE < 9 -->
+	<!--[if lt IE 9]>
+	
+	<![endif]-->
+
+	
+
+
+
+		
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+
+
+
+<link rel="https://api.w.org/" href="http://www.julianben.com/wp-json/"/>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.julianben.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.julianben.com/wp-includes/wlwmanifest.xml"/> 
+
+
+<meta name="generator" content="WordPress 5.2.3"/>
+
+
+
+
+
+
+	<style type="text/css">
+		a, #comments h3, h3#reply-title {
+			color: #364D96;
+		}
+		
+        ::selection, ::-moz-selection {
+			background: rgba(54,77,150,0.8);
+			color: #fff;
+		}
+		
+		.format-link h2 a, #header-image-div {
+			background: #364D96;
+		}
+		
+		@media screen and (max-width: 850px) {
+			nav ul li a:active, nav ul li a:focus, nav ul li a:hover {
+				background: #364D96;
+			}
+		}
+
+		input[type=submit]:hover, button:hover, .navigation a:hover, input[type=submit]:active, button:active, .navigation a:active, input[type=submit]:focus, button:focus, .navigation a:focus {
+			box-shadow: 0 0 4px rgba(54,77,150,0.8);
+			border: 1px solid rgba(54,77,150,0.8)!important;
+		}
+
+		input:focus, textarea:focus {
+			box-shadow: inset 0 0 3px rgba(54,77,150,0.2);
+			border: 1px solid rgba(54,77,150,0.2);
+		}
+	</style>
+
+
+
+
+
+	<style type="text/css">
+		@media screen and (min-width: 851px) {
+			#headerimage {
+				height: 42px;
+			}
+		}
+	</style>
+
+</head>
+
+<body class="post-template-default single single-post postid-665 single-format-standard">
+<div id="wrapper">
+	<header id="header">
+
+		<section id="head">
+			<form method="get" id="headersearch" action="/">
+				<label class="hidden" for="hs">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="hs"/><input type="submit" id="hsearchsubmit" value="Search"/> 
+				</div>
+			</form>	
+						<h1><a href="/">JulianBen.com</a></h1>
+			<p class="description">Life In IT Service Management</p>
+		</section>
+
+				
+		<button id="showmenu">Menu</button>
+		<form method="get" id="mobilesearch" action="/">
+			<label class="hidden" for="s">Search:</label>
+			<div>
+				<input type="text" value="" name="s" id="s"/><input type="submit" id="searchsubmit" value="Search"/> 
+			</div>
+		</form>
+		
+		<nav id="mobnav">
+			<div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-216" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-216"><a href="/category/adobe/">Adobe</a></li>
+<li id="menu-item-214" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-214"><a href="/category/cisco-2/">Cisco</a></li>
+<li id="menu-item-213" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-213"><a href="/category/office365-2/">Office365</a></li>
+<li id="menu-item-215" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-215"><a href="/category/linux/">Linux</a></li>
+<li id="menu-item-217" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-217"><a href="/category/microsoft/">Microsoft</a></li>
+<li id="menu-item-505" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-505"><a href="#">Resume</a></li>
+</ul></div>		</nav>
+
+
+	</header>
+
+	<section id="main">
+
+
+
+	<div id="content">
+
+	
+			<article id="post-665" class="post-665 post type-post status-publish format-standard hentry category-microsoft category-windows-2 tag-0xc000000f tag-wds tag-windows-deployment-server tag-winload-exe">	
+
+
+				<div class="title">
+				<h2><a href="/2014/11/04/win-2012-r2-wds-fix-0xc000000f-required-file-is-missing-or-contains-errors-winload-exe/" title="Win 2012 R2 WDS Fix – 0XC000000F – required file is missing or contains errors (winload.exe)">Win 2012 R2 WDS Fix &#8211; 0XC000000F &#8211; required file is missing or contains errors (winload.exe)</a></h2>
+			</div>
+		
+	<div class="meta">
+				<a href="/2014/11/04/win-2012-r2-wds-fix-0xc000000f-required-file-is-missing-or-contains-errors-winload-exe/">04. November 2014</a> &middot; <a href="/2014/11/04/win-2012-r2-wds-fix-0xc000000f-required-file-is-missing-or-contains-errors-winload-exe/#respond">Write a comment</a>		 &middot; Categories: <a href="/category/microsoft/" rel="category tag">Microsoft</a>, <a href="/category/windows-2/" rel="category tag">Windows</a> &middot; Tags: <a href="/tag/0xc000000f/" rel="tag">0XC000000F</a>, <a href="/tag/wds/" rel="tag">wds</a>, <a href="/tag/windows-deployment-server/" rel="tag">windows deployment server</a>, <a href="/tag/winload-exe/" rel="tag">winload.exe</a>			</div>
+
+	<div class="entry">
+		<div class="comment-content">
+<p><img id="irc_mi" class="" src="#" alt="" width="581" height="380"/></p>
+<p>Windows 2012 R2 currently halts with an error (0XC000000F)  when the Windows Deployment Server attempts to Capture an Image.  Run the below commands to mount the capture wim file and then unmount.  This work around will allow WDS to run and capture the image<br/>
+<span id="more-665"></span></p>
+<p>Dism /mount-Image /ImageFile:C:\RemoteInstall\Boot\x64\Images\Captureimage.wim /index:1 /MountDir:C:\test\MountDir</p>
+<p>Dism /unmount-Image /MountDir:C:\test\MountDir /commit</p>
+<p>Restart wds service in wds console</p>
+<p><a href="/wp-content/uploads/2014/11/11-4-2014-11.png"><img class="alignnone size-full wp-image-673" src="../images/2014/11/11-4-2014-11.png" alt="11-4-2014 11" width="538" height="245"/></a></p>
+</div>
+<p>&nbsp;</p>
+			</div>
+	
+</article>
+
+			
+			
+			<!-- If comments are open, but there are no comments. -->
+
+	 
+
+	<div id="comment-form">
+						<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/web/20191023233300/http://www.julianben.com/2014/11/04/win-2012-r2-wds-fix-0xc000000f-required-file-is-missing-or-contains-errors-winload-exe/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"/></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"/></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200"/></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"/><label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"/> <input type="hidden" name="comment_post_ID" value="665" id="comment_post_ID"/>
+<input type="hidden" name="comment_parent" id="comment_parent" value="0"/>
+</p>			</form>
+			</div><!-- #respond -->
+				</div>
+
+	
+	</div>
+	
+<div id="sidebar-bottom">
+	<aside id="sidebar-1" class="sidebar">
+
+		<div id="search-2" class="widget widget_search">			<form method="get" id="sidebarsearch" action="/">
+				<label class="hidden" for="s">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="s"/>
+					<input type="submit" id="searchsubmit" value="Search"/> 
+				</div>
+			</form>	
+</div>		<div id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widgettitle">Recent Posts</h4>		<ul>
+											<li>
+					<a href="/2019/10/07/how-to-convert-partition-from-mbr-to-gpt-on-windows/">How to convert partition from MBR to GPT on Windows</a>
+									</li>
+											<li>
+					<a href="/2015/11/04/check-whether-the-exchange-server-is-an-open-smtp-relay-using-a-telnet-test/">Check Whether the Exchange Server is an Open SMTP Relay using a Telnet Test</a>
+									</li>
+											<li>
+					<a href="/2015/10/29/how-to-add-an-smtp-address-in-office365-with-dirsync-adfs-enabled/">How to Add an SMTP address in Office365 with DirSync &#038; ADFS enabled</a>
+									</li>
+											<li>
+					<a href="/2015/03/03/dell-openmanage-server-administrator-on-vmware-esxi-5-5/">Dell OpenManage Server Administrator on VMWare ESXi 5.5</a>
+									</li>
+											<li>
+					<a href="/2015/02/09/unlock-windows-update-locked-due-to-group-policy/">Windows Update locked due to group policy</a>
+									</li>
+					</ul>
+		</div><div id="archives-2" class="widget widget_archive"><h4 class="widgettitle">Archives</h4>		<ul>
+				<li><a href="/2019/10/">October 2019</a></li>
+	<li><a href="/2015/11/">November 2015</a></li>
+	<li><a href="/2015/10/">October 2015</a></li>
+	<li><a href="/2015/03/">March 2015</a></li>
+	<li><a href="/2015/02/">February 2015</a></li>
+	<li><a href="/2014/11/">November 2014</a></li>
+	<li><a href="/2014/07/">July 2014</a></li>
+	<li><a href="/2014/05/">May 2014</a></li>
+	<li><a href="/2014/04/">April 2014</a></li>
+	<li><a href="/2014/02/">February 2014</a></li>
+	<li><a href="/2013/12/">December 2013</a></li>
+	<li><a href="/2013/11/">November 2013</a></li>
+	<li><a href="/2013/08/">August 2013</a></li>
+	<li><a href="/2013/06/">June 2013</a></li>
+	<li><a href="/2013/05/">May 2013</a></li>
+	<li><a href="/2013/04/">April 2013</a></li>
+	<li><a href="/2013/03/">March 2013</a></li>
+	<li><a href="/2013/01/">January 2013</a></li>
+	<li><a href="/2012/12/">December 2012</a></li>
+	<li><a href="/2012/11/">November 2012</a></li>
+	<li><a href="/2012/10/">October 2012</a></li>
+	<li><a href="/2012/09/">September 2012</a></li>
+	<li><a href="/2012/08/">August 2012</a></li>
+	<li><a href="/2012/07/">July 2012</a></li>
+		</ul>
+			</div>
+	</aside>
+
+	<aside id="sidebar-2" class="sidebar">
+
+		
+	</aside>
+</div>
+		</section><!-- end main section -->
+	<footer id="footer">
+		<div class="left">&copy; 2019 JulianBen.com. All rights reserved.</div>
+		<div class="right">Design by picomol. Powered by <a href="#">WordPress</a>.</div>
+	</footer>
+</div>
+		
+
+
+</body>
+</html>
+
+<!--Generated by Endurance Page Cache--><!--
+     FILE ARCHIVED ON 23:33:00 Oct 23, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:56:43 Mar 12, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.725
+  exclusion.robots: 0.12
+  exclusion.robots.policy: 0.107
+  esindex: 0.009
+  cdx.remote: 73.825
+  LoadShardBlock: 111.155 (3)
+  PetaboxLoader3.datanode: 242.671 (4)
+  load_resource: 137.478
+-->
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

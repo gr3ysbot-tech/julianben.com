@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exchange 2007 SP3 &#8211; New-ReceiveConnector fails | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>Exchange 2007 SP3 &#8211; New-ReceiveConnector fails | JulianBen.com</h1>
+    <time>2013-12-31</time>
+    <div class="content">
+<!DOCTYPE html> 
+<html lang="en-US">
+
+<head>
+
+
+
+
+
+
+<!-- End Wayback Rewrite JS Include -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Exchange 2007 SP3 &#8211; New-ReceiveConnector fails | JulianBen.com</title>
+		
+	<link rel="pingback" href="http://www.JulianBen.com/xmlrpc.php"/>
+
+	<!-- HTML5 for IE < 9 -->
+	<!--[if lt IE 9]>
+	
+	<![endif]-->
+
+	
+
+
+
+
+
+
+
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.JulianBen.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.JulianBen.com/wp-includes/wlwmanifest.xml"/> 
+
+
+<meta name="generator" content="WordPress 3.8.1"/>
+
+
+
+
+	<style type="text/css">
+		a, #comments h3, h3#reply-title {
+			color: #a84649;
+		}
+		
+        ::selection, ::-moz-selection {
+			background: rgba(168,70,73,0.8);
+			color: #fff;
+		}
+		
+		.format-link h2 a, #header-image-div {
+			background: #a84649;
+		}
+		
+		@media screen and (max-width: 850px) {
+			nav ul li a:active, nav ul li a:focus, nav ul li a:hover {
+				background: #a84649;
+			}
+		}
+
+		input[type=submit]:hover, button:hover, .navigation a:hover, input[type=submit]:active, button:active, .navigation a:active, input[type=submit]:focus, button:focus, .navigation a:focus {
+			box-shadow: 0 0 4px rgba(168,70,73,0.8);
+			border: 1px solid rgba(168,70,73,0.8)!important;
+		}
+
+		input:focus, textarea:focus {
+			box-shadow: inset 0 0 3px rgba(168,70,73,0.2);
+			border: 1px solid rgba(168,70,73,0.2);
+		}
+	</style>
+
+
+
+
+	<style type="text/css">
+		#wrapper {
+			background: #fff;
+		}
+
+		nav {
+			border-left: none;
+			border-right: none;
+		}
+	</style>
+
+	<style type="text/css">
+		@media screen and (min-width: 851px) {
+			#headerimage {
+				height: 42px;
+			}
+		}
+	</style>
+
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #353535; }
+</style>
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Exchange 2007 SP3 - New-ReceiveConnector fails"/>
+<meta property="og:url" content="/2013/12/31/exchange-2007-sp3-new-receiveconnector-fails/"/>
+<meta property="og:description" content="When creating a new Receive Connector on Exchange Server 2007 SP3 (Update Rollup 2) the creation failed with a non-retriabele error and a “the requested attribute does not exist” error: Error: Acti..."/>
+<meta property="article:published_time" content="2014-01-01T00:52:49+00:00"/>
+<meta property="article:modified_time" content="2014-01-01T00:56:00+00:00"/>
+<meta property="article:author" content="http://www.JulianBen.com/author/zorg/"/>
+<meta property="og:site_name" content="JulianBen.com"/>
+<meta property="og:image" content="#"/>
+<meta name="twitter:site" content="@jetpack"/>
+<meta name="twitter:card" content="summary"/>
+</head>
+
+<body class="single single-post postid-585 single-format-standard custom-background">
+<div id="wrapper">
+	<header id="header">
+
+		<section id="head">
+			<form method="get" id="headersearch" action="/">
+				<label class="hidden" for="hs">Search:</label>
+				<div>
+					<input type="text" value="" name="s" id="hs"/><input type="submit" id="hsearchsubmit" value="Search"/> 
+				</div>
+			</form>	
+						<h1><a href="/">JulianBen.com</a></h1>
+			<p class="description">Life in IT Service Management</p>
+		</section>
+
+				
+		<button id="showmenu">Menu</button>
+		<form method="get" id="mobilesearch" action="/">
+			<label class="hidden" for="s">Search:</label>
+			<div>
+				<input type="text" value="" name="s" id="s"/><input type="submit" id="searchsubmit" value="Search"/> 
+			</div>
+		</form>
+		
+		<nav id="mobnav">
+			<div class="menu-header-container"><ul id="menu-header" class="menu"><li id="menu-item-286" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-286"><a href="/category/adobe/">Adobe</a></li>
+<li id="menu-item-270" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-270"><a href="/category/cisco-2/">Cisco</a></li>
+<li id="menu-item-269" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-269"><a href="/category/office365-2/">Office365</a></li>
+<li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-285"><a href="/category/linux/">Linux</a></li>
+<li id="menu-item-288" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-288"><a href="/category/microsoft/">Microsoft</a></li>
+<li id="menu-item-579" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-579"><a href="/">Resume</a></li>
+</ul></div>		</nav>
+
+
+	</header>
+
+	<section id="main">
+
+
+
+	<div id="content">
+
+	
+			<article id="post-585" class="post-585 post type-post status-publish format-standard hentry category-microsoft tag-exch2007 tag-exchange-2007 tag-exchange-2007-sp3 tag-exchange-2007-sp3-schema-upgrade tag-new-receiveconnector tag-prepareschema tag-schema tag-schema-upgrade">	
+
+
+				<div class="title">
+				<h2><a href="/2013/12/31/exchange-2007-sp3-new-receiveconnector-fails/" title="Exchange 2007 SP3 – New-ReceiveConnector fails">Exchange 2007 SP3 &#8211; New-ReceiveConnector fails</a></h2>
+			</div>
+		
+	<div class="meta">
+				<a href="/2013/12/31/exchange-2007-sp3-new-receiveconnector-fails/">31. December 2013</a> &middot; <a href="/2013/12/31/exchange-2007-sp3-new-receiveconnector-fails/#respond" title="Comment on Exchange 2007 SP3 – New-ReceiveConnector fails">Write a comment</a>		 &middot; Categories: <a href="/category/microsoft/" title="View all posts in Microsoft" rel="category tag">Microsoft</a> &middot; Tags: <a href="/tag/exch2007/" rel="tag">exch2007</a>, <a href="/tag/exchange-2007/" rel="tag">exchange 2007</a>, <a href="/tag/exchange-2007-sp3/" rel="tag">Exchange 2007 SP3</a>, <a href="/tag/exchange-2007-sp3-schema-upgrade/" rel="tag">Exchange 2007 SP3 schema upgrade</a>, <a href="/tag/new-receiveconnector/" rel="tag">new-ReceiveConnector</a>, <a href="/tag/prepareschema/" rel="tag">PrepareSchema</a>, <a href="/tag/schema/" rel="tag">schema</a>, <a href="/tag/schema-upgrade/" rel="tag">schema upgrade</a>			</div>
+
+	<div class="entry">
+		<p>When creating a new Receive Connector on Exchange Server 2007 SP3 (Update Rollup 2) the creation failed with a non-retriabele error and a “the requested attribute does not exist” error:</p>
+<p>Error:<br/>
+Active Directory operation failed on GL-SRV.test.local. This error is not retriable. Additional information: The parameter is incorrect.<br/>
+Active directory response: 00000057: LdapErr: DSID-0C090C26, comment: Error in attribute conversion operation, data 0, v1772</p>
+<p>The requested attribute does not exist.</p>
+<p>Exchange Management Shell command attempted:<br/>
+new-ReceiveConnector -Name &#8216;mail.gltest.com&#8217; -Usage &#8216;Internet&#8217; -Bindings &#8217;0.0.0.0:25&#8242; -Fqdn &#8216;mail.gltest.com&#8217; -Server &#8216;GL-SRV&#8217;</p>
+<p>Elapsed Time: 00:00:00</p>
+<p><span style="line-height: 1.5em;">According to this article on the Microsoft Exchange Team site more people are facing this issue (scroll through the comments). It looks like something specific to UR1 and UR2 for Exchange Server 2007 SP3:</span><a style="line-height: 1.5em;" href="#">http://blogs.technet.com/b/exchange/archive/2010/09/09/3410985.aspx</a></p>
+<p>Microsoft is aware of this issue and it is currently being investigated. It looks like the schema upgrade during SP3 is not performed properly sometimes, resulting in an incorrect schema for Service Pack 3. Unfortunately the setup application of SP3 continues, resulting in these kind of errors.</p>
+<p>You can solve it by running the Exchange 2007 SP3 schema upgrade again:</p>
+<p>Setup.com /PrepareSchema</p>
+<p>After this creation of a new Receive Connector is successful.</p>
+			</div>
+	
+</article>
+
+			
+			
+			<!-- If comments are closed. -->
+		<p class="nocomments">Comments closed</p>
+
+	
+
+
+	
+	</div>
+	
+<div id="sidebar-bottom">
+	<aside id="sidebar-1" class="sidebar">
+
+				<div id="recent-posts-4" class="widget widget_recent_entries">		<h4 class="widgettitle">Most Recent</h4>		<ul>
+					<li>
+				<a href="/2014/02/10/automatic-backup-with-freefilesync/">Automatic Backups with FreeFileSync</a>
+						</li>
+					<li>
+				<a href="/2013/12/31/exchange-2007-sp3-new-receiveconnector-fails/">Exchange 2007 SP3 &#8211; New-ReceiveConnector fails</a>
+						</li>
+					<li>
+				<a href="/2013/12/31/windows-2012-fix-microsoft-office-word-has-not-been-installed-for-the-current-user-error/">[Windows 2012 Fix] Microsoft Office Word Has Not Been Installed For The Current User Error</a>
+						</li>
+					<li>
+				<a href="/2013/12/12/remote-desktop-services-remove-domain-requirement-from-rdweb-login-page/">[Remote Desktop Services] Remove Domain requirement from RDWeb login page</a>
+						</li>
+					<li>
+				<a href="/2013/12/11/windows-server-2012-migrating-fsmo-roles/">Windows Server 2012 – Migrating FSMO Roles</a>
+						</li>
+				</ul>
+		</div><div id="linkcat-2" class="widget widget_links"><h4 class="widgettitle">Blogroll</h4>
+	<ul class="xoxo blogroll">
+<li><a href="#">CCIE Flyer</a></li>
+<li><a href="#">CCIE Journey</a></li>
+<li><a href="#">CCNP Security</a></li>
+<li><a href="#">EtherealMind</a></li>
+<li><a href="#">Gomjabbar</a></li>
+<li><a href="#">Hacking Cisco</a></li>
+<li><a href="#">INE Blog</a></li>
+<li><a href="#">IPExpert Blog</a></li>
+<li><a href="#">LoveMyTool</a></li>
+<li><a href="#">Networks Training</a></li>
+<li><a href="#">Packet Life</a></li>
+<li><a href="#">Packet Pushers</a></li>
+<li><a href="#">PacketU</a></li>
+<li><a href="#">RouterFreak</a></li>
+<li><a href="#" target="_blank">Tekcert</a></li>
+<li><a href="#">The Networking Nerd</a></li>
+
+	</ul>
+</div>
+<div id="tag_cloud-2" class="widget widget_tag_cloud"><h4 class="widgettitle">Tags</h4><div class="tagcloud"><a href="/tag/2008-r2/" class="tag-link-105" title="3 topics" style="font-size: 13.675675675676pt;">2008 r2</a>
+<a href="/tag/5500/" class="tag-link-11" title="1 topic" style="font-size: 8pt;">5500</a>
+<a href="/tag/5505/" class="tag-link-12" title="4 topics" style="font-size: 15.567567567568pt;">5505</a>
+<a href="/tag/active-directory/" class="tag-link-9" title="1 topic" style="font-size: 8pt;">active directory</a>
+<a href="/tag/anyconnect/" class="tag-link-3" title="3 topics" style="font-size: 13.675675675676pt;">anyconnect</a>
+<a href="/tag/asa/" class="tag-link-10" title="9 topics" style="font-size: 21.243243243243pt;">asa</a>
+<a href="/tag/asa5505/" class="tag-link-69" title="3 topics" style="font-size: 13.675675675676pt;">asa5505</a>
+<a href="/tag/calculate/" class="tag-link-22" title="2 topics" style="font-size: 11.405405405405pt;">calculate</a>
+<a href="/tag/centos/" class="tag-link-88" title="2 topics" style="font-size: 11.405405405405pt;">CentOS</a>
+<a href="/tag/cisco/" class="tag-link-4" title="9 topics" style="font-size: 21.243243243243pt;">cisco</a>
+<a href="/tag/cisco-asa/" class="tag-link-13" title="4 topics" style="font-size: 15.567567567568pt;">cisco asa</a>
+<a href="/tag/cleanup/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">cleanup</a>
+<a href="/tag/cli/" class="tag-link-54" title="3 topics" style="font-size: 13.675675675676pt;">cli</a>
+<a href="/tag/cloud/" class="tag-link-117" title="2 topics" style="font-size: 11.405405405405pt;">cloud</a>
+<a href="/tag/configure/" class="tag-link-8" title="2 topics" style="font-size: 11.405405405405pt;">configure</a>
+<a href="/tag/cost/" class="tag-link-21" title="1 topic" style="font-size: 8pt;">cost</a>
+<a href="/tag/dropbox/" class="tag-link-17" title="1 topic" style="font-size: 8pt;">Dropbox</a>
+<a href="/tag/email/" class="tag-link-56" title="4 topics" style="font-size: 15.567567567568pt;">email</a>
+<a href="/tag/exchange/" class="tag-link-62" title="5 topics" style="font-size: 17.081081081081pt;">exchange</a>
+<a href="/tag/exchange-2007/" class="tag-link-64" title="4 topics" style="font-size: 15.567567567568pt;">exchange 2007</a>
+<a href="/tag/exchange2007/" class="tag-link-118" title="2 topics" style="font-size: 11.405405405405pt;">exchange2007</a>
+<a href="/tag/exchange-2010/" class="tag-link-63" title="2 topics" style="font-size: 11.405405405405pt;">exchange 2010</a>
+<a href="/tag/exchange2010/" class="tag-link-53" title="2 topics" style="font-size: 11.405405405405pt;">exchange2010</a>
+<a href="/tag/gpo/" class="tag-link-58" title="2 topics" style="font-size: 11.405405405405pt;">GPO</a>
+<a href="/tag/how-to/" class="tag-link-23" title="5 topics" style="font-size: 17.081081081081pt;">how to</a>
+<a href="/tag/ldap/" class="tag-link-6" title="1 topic" style="font-size: 8pt;">ldap</a>
+<a href="/tag/lsa/" class="tag-link-24" title="2 topics" style="font-size: 11.405405405405pt;">lsa</a>
+<a href="/tag/manual/" class="tag-link-147" title="2 topics" style="font-size: 11.405405405405pt;">manual</a>
+<a href="/tag/migration/" class="tag-link-126" title="2 topics" style="font-size: 11.405405405405pt;">migration</a>
+<a href="/tag/office365/" class="tag-link-55" title="10 topics" style="font-size: 22pt;">office365</a>
+<a href="/tag/ospf/" class="tag-link-20" title="4 topics" style="font-size: 15.567567567568pt;">ospf</a>
+<a href="/tag/portal/" class="tag-link-5" title="1 topic" style="font-size: 8pt;">portal</a>
+<a href="/tag/removal/" class="tag-link-145" title="2 topics" style="font-size: 11.405405405405pt;">removal</a>
+<a href="/tag/securecrt/" class="tag-link-18" title="1 topic" style="font-size: 8pt;">SecureCRT</a>
+<a href="/tag/server/" class="tag-link-7" title="2 topics" style="font-size: 11.405405405405pt;">server</a>
+<a href="/tag/setup/" class="tag-link-45" title="2 topics" style="font-size: 11.405405405405pt;">setup</a>
+<a href="/tag/ssh/" class="tag-link-42" title="2 topics" style="font-size: 11.405405405405pt;">ssh</a>
+<a href="/tag/synch/" class="tag-link-19" title="1 topic" style="font-size: 8pt;">Synch</a>
+<a href="/tag/types/" class="tag-link-25" title="1 topic" style="font-size: 8pt;">types</a>
+<a href="/tag/video/" class="tag-link-27" title="3 topics" style="font-size: 13.675675675676pt;">video</a>
+<a href="/tag/win2k12/" class="tag-link-174" title="2 topics" style="font-size: 11.405405405405pt;">win2k12</a>
+<a href="/tag/windows/" class="tag-link-16" title="4 topics" style="font-size: 15.567567567568pt;">windows</a>
+<a href="/tag/windows-2012/" class="tag-link-173" title="2 topics" style="font-size: 11.405405405405pt;">Windows 2012</a>
+<a href="/tag/windows-xp/" class="tag-link-60" title="2 topics" style="font-size: 11.405405405405pt;">Windows XP</a>
+<a href="/tag/wsus/" class="tag-link-14" title="1 topic" style="font-size: 8pt;">wsus</a></div>
+</div>
+	</aside>
+
+	<aside id="sidebar-2" class="sidebar">
+
+		
+	</aside>
+</div>
+		</section><!-- end main section -->
+	<footer id="footer">
+		<div class="left">&copy; 2014 JulianBen.com. All rights reserved.</div>
+		<div class="right">Design by picomol. Powered by <a href="#">WordPress</a>.</div>
+	</footer>
+</div>
+			<div style="display:none">
+	</div>
+
+
+
+
+
+	
+	
+</body>
+</html>
+<!--
+     FILE ARCHIVED ON 14:53:05 Feb 24, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:56:22 Mar 12, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.529
+  exclusion.robots: 0.073
+  exclusion.robots.policy: 0.063
+  esindex: 0.007
+  cdx.remote: 12.077
+  LoadShardBlock: 236.742 (3)
+  PetaboxLoader3.resolve: 389.58 (4)
+  PetaboxLoader3.datanode: 173.204 (4)
+  load_resource: 340.186
+-->
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

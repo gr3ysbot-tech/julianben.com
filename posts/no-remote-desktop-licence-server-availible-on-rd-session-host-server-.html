@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No remote Desktop Licence Server availible on RD Session Host server 2012 | JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>No remote Desktop Licence Server availible on RD Session Host server 2012 | JulianBen.com</h1>
+    <time>2014-05-03</time>
+    <div class="content">
+
+<p>A fully functional and activated 2012 Remote Desktop Session Host server displayed the following message:</p>
+<p><a href="#"><img class="aligncenter size-full wp-image-163" src="#" alt="error no licence" width="562" height="145"/></a></p>
+<p>This was a simple setup on one server with the: connection broker, Session Host and Licensing server with 2012 CAL’s installed.<br/>
+<span id="more-161"></span></p>
+<p><span id="more-629"></span></p>
+<p>Even though the licensing seems to be configured correctly, in server manager:</p>
+<p><a href="#"><img class="aligncenter size-large wp-image-168" src="#" alt="ServerManagerLicencingOK" width="640" height="512"/></a></p>
+<p>and powershell:</p>
+<p><a href="#"><img class="aligncenter size-full wp-image-166" src="#" alt="Powershell_setting" width="415" height="101"/></a></p>
+<p>Licensing diagnostics:</p>
+<p><a href="#"><img class="aligncenter size-large wp-image-197" src="#" alt="Licdiag" width="640" height="451"/></a></p>
+<p>everywhere you look, everything seems to be OK. But the license manager shows something odd:</p>
+<p><a href="#"><img class="aligncenter size-large wp-image-198" src="#" alt="NoLicensesUsed" width="640" height="192"/></a></p>
+<p>No licenses are being used? This server was used since late 2012. Some interesting things could also be found in the event logs, the following events appear:</p>
+<p>EventID: 1130<br/>
+Source: TerminalServices-RemoteConnectionManager</p>
+<p>The Remote Desktop Session Host server does not have a Remote Desktop license server specified. To specify a license server for the Remote Desktop Session Host server, use the Remote Desktop Session Host Configuration tool.</p>
+<p><a href="#"><img class="aligncenter size-full wp-image-164" src="#" alt="event1130" width="640" height="445"/></a></p>
+<p>and:</p>
+<p>EventID: 1128<br/>
+Source: TerminalServices-RemoteConnectionManager</p>
+<p>The RD Licensing grace period has expired and the service has not registered with a license server with installed licenses. A RD Licensing server is required for continuous operation. A Remote Desktop Session Host server can operate without a license server for 120 days after initial start up.</p>
+<p><a href="#"><img class="aligncenter size-full wp-image-162" src="#" alt="1128eventid" width="640" height="445"/></a></p>
+<p>The solution was to delete the REG_BINARY in</p>
+<p>HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlTerminal ServerRCMGracePeriod</p>
+<p>Only leaving the default.</p>
+<p><a href="#"><img class="aligncenter size-large wp-image-167" src="#" alt="regkey" width="640" height="417"/></a></p>
+<p>Note: you must take ownership and give admin users full control to be able to delete this key.</p>
+<p>After a reboot the server should be working again, licenses are now being used:<br/>
+<a href="#"><img class="aligncenter size-large wp-image-165" src="#" alt="Licencemanager" width="640" height="264"/></a></p>
+<p>Although everything seemed to be ok and configured correctly with valid licenses, it seems that the setup was still in a 180 day grace period, even though it was correctly configured.<br/>
+A possible bug in RDS 2012?</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+			
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

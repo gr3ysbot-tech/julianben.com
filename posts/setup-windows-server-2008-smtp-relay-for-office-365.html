@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setup Windows Server 2008 SMTP Relay for Office 365 &laquo; JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>Setup Windows Server 2008 SMTP Relay for Office 365 &laquo; JulianBen.com</h1>
+    <time>2013-01-19</time>
+    <div class="content">
+
+<div id="wrapper">
+
+<div id="top_cufon"><h1 id="logo"><a name="top" title="JulianBen.com" href="/">JulianBen.com</a> <small></small></h1></div>
+
+<div id="header">
+<a id="rss-feed" title="Syndicate this site using RSS" href="/feed/">Subscribe via RSS</a>
+
+<div id="top_bar">
+<div class="center_menu">
+<ul id="front_menu">
+    <li><a class="" title="Home" href="/"><span>Home</span></a></li>
+<li id="menu-item-286" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-286"><a href="/category/adobe/"><span>Adobe</span></a></li>
+<li id="menu-item-270" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-270"><a href="/category/cisco-2/"><span>Cisco</span></a></li>
+<li id="menu-item-269" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-269"><a href="/category/office365-2/"><span>Office365</span></a></li>
+<li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-285"><a href="/category/linux/"><span>Linux</span></a></li>
+<li id="menu-item-288" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-288"><a href="/category/microsoft/"><span>Microsoft</span></a></li></ul>
+</div>
+<form method="get" id="searchform" action="/"> <input type="text" value="" name="s" id="s"/> <input type="submit" id="go" value="" alt="Search" title="Search"/></form>
+</div>
+
+
+</div>
+<div id="content"><div id="content-body">
+<div class="post-263 post type-post status-publish format-standard hentry category-office365-2 tag-office365 tag-smtp tag-windows" id="post-263">
+<div class="comm_date"><span class="data"><span class="j">19</span>Jan/13</span><span class="nr_comm"><a class="nr_comm_spot" href="/2013/01/19/setup-windows-server-2008-smtp-relay-for-office-365/#comments">Off</a></span></div>
+<h2><a title="Setup Windows Server 2008 SMTP Relay for Office 365" href="/2013/01/19/setup-windows-server-2008-smtp-relay-for-office-365/" rel="bookmark">Setup Windows Server 2008 SMTP Relay for Office 365</a></h2>
+<p>Many small businesses have printers that scan to e-mail, phone systems that send e-mail status updates, and a number of other e-mail enabled applications and devices.  When converting to a cloud based e-mail system, like Office 365, sometimes these devices cannot be configured to send e-mail over encrypted links to the cloud.  Office 365 required an SMTP connection that supports TLS encryption and many legacy devices or applications don’t support this.</p>
+<p>The solution is to install an onsite SMTP relay that supports an encrypted connection.  Fortuneately, Windows Server supports an SMTP relay for Office 365.</p>
+<p>This how-to guide assumes you have an operational Windows Server 2008 server within your company / organization.  It will work through adding the correct roles and features to Windows Server 2008, and then configuring them for communicating with Online Exchange within Office 365.</p>
+<h2>
+Determine Office 365 SMTP Server Settings</h2>
+<p>Before you can configure the relay, you must know the exact mail server addresses to use in Office 365.  To determine those, follow these steps:<br/>
+<span id="more-263"></span></p>
+<ol>
+<li>Login in to the <a title="Office 365 Login" href="#" target="_blank">Microsoft Online Services Portal</a>.</li>
+<li>Click on Outlook</li>
+<li>Click Options (upper right corner)</li>
+<li>Click on About</li>
+<li>There will be a section titled External SMTP setting that looks like:</li>
+</ol>
+<p><a href="#"><img title="office-365-external-smtp-setting" alt="Office 365 External SMTP Settings" src="#" width="540" height="91"/></a></p>
+<p>The important information is:</p>
+<ul>
+<li>Server name: pod51010.outlook.com (your’s may be different)</li>
+<li>Port: 587</li>
+<li>Encryption method: TLS</li>
+</ul>
+<p>You will use this information when configuring the SMTP Relay below.</p>
+<h2>Install and Configure Windows Server 2008 SMTP Relay</h2>
+<p>Now it’s time to install and configure the SMTP relay component inside of Windows Server 2008.  The instructions below assume you are logged in and have administrator access to the server you are adding the SMTP Relay server to.</p>
+<p>The steps for configuring a Windows Server 2008 SMTP relay for Office 365 are:</p>
+<ol>
+<li>Add the SMTP Server feature.   (Start-&gt;Administrative Tools-&gt;Server Manager-&gt;Features-&gt;Add Features-&gt;SMTP Server).  The Add features wizard bring up the Select Role Services for the Web Server (IIS) role.  Select the IIS Management Console role service.  You’ll need this for step 2.  In some older versions of Windows Server the SMTP Server function is included with the Web Server (IIS) role.  For that case, make sure to include the IIS Management Console and IIS 6 Management Console features.</li>
+<li>If this server doesn’t have a certificate already installed, you will need to install one. Office 365 requires TLS encryption and for this server to use TLS, it must have a certificate installed.  To create the self-signed certificate: (Start-&gt;Administrative Tools-&gt;Internet Information Services (IIS) Manager-&gt;Select Host-&gt;Server Certificates-&gt;Create Self-Signed Certificate)</li>
+<li>Enable SMTP Server. (Server Manager-&gt;Features-&gt; Enable SMTP Server)</li>
+<li>Now it’s time to actually configure the SMTP Relay for Office 365. Start-&gt;Administrative Tools-&gt;Internet Information Services (IIS) 6.0 Manager.</li>
+<li>Click on the ‘+’ next to your host name.</li>
+<li>Right-click on the [SMTP Virtual Server…] and select Properties. It’s now time to step through each of the tabs to configure the SMTP relay.</li>
+<li>General Tab: The IP address should be set to (All Unassigned).<a href="#"><img title="2008-server-smtp-relay-office365-properties" alt="Windows Server 2008 SMTP Relay Properties for Office 365" src="#" width="402" height="447"/></a></li>
+<li>Access Tab: Click Authentication… and select the Anonymous access check box.  This is the authentication used by the applications and devices within your network to access the new SMTP relay.  It is being configured to be open to every device on your network.<br/>
+<a href="#"><img title="2008-server-smtp-relay-office365-authentication" alt="Windows Server 2008 SMTP Relay for Office 365 - Authentication" src="#" width="385" height="379"/></a></li>
+<li>Access Tab: Click Connection… Select ‘All Except the list below’ and leave the list below blank. This allows any device inside your firewall to access this relay.<br/>
+<a href="#"><img title="2008-server-smtp-relay-office365-connections-security" alt="Windows Server 2008 SMTP Relay for Office 365 - Connections Security" src="#" width="384" height="301"/></a></li>
+<li>Access Tab: Click Relay… Select ‘All Except the list below’ and leave the list below blank. This allows any device inside your firewall to access this relay.  This setting is extemely open and assumes you trust the devices connecting to your network not to abuse this relay.</li>
+<li>Messages Tab: No changes. The default works well.</li>
+<li>Delivery Tab: Click Outbound Security… Select Basic authentication and enter the Office 365 username and password that will gateway will to authenticate with Office 365. The user name must be a fully qualified (ex: user@companyname.com) valid Office 365 user licensed for Exchange. For example if my domain is co365lab.com and the user to authenticate is admin, then the username would be admin@co365lab.com. Note that this same address must be used as the “From:” address for any e-mails sent to the relay from applications and devices.<br/>
+Check TLS encryption.<br/>
+<a href="#"><img title="2008-server-smtp-relay-office365-outbound-security" alt="Windows Server 2008 SMTP Relay for Office 365 - Outbound Security" src="#" width="404" height="449"/></a></li>
+<li>Delivery Tab: Click Outbound connections… Set the TCP port to 587.<br/>
+<a href="#"><img title="2008-server-smtp-relay-office365-outbound-connections" alt="Windows Server 2008 SMTP Relay for Office 365 - Outbound Connections" src="#" width="383" height="204"/></a></li>
+<li>Delivery Tab: Click Advanced Delivery and set the Fully-qualified domain name box to the name of the local server that is acting as the relay (ex: myserver1). Set the Smart host the full-qualified name of the Office 365 SMTP Server (ex. pod51010.outlook.com) that you determined if the first section. Make sure the “Attempt direct…” box is unchecked.<br/>
+<a href="#"><img title="2008-server-smtp-relay-office365-advanced-delivery" alt="Windows Server 2008 SMTP Relay for Office 365 - Advanced Delivery" src="#" width="384" height="371"/></a></li>
+<li>LDAP Routing and Security Tabs: No changes to these areas.</li>
+<li>Make sure the SMTP Server is started.  Right-click the SMTP Virtual Server and choose Start.</li>
+</ol>
+<p>You’re done configuring the SMTP Relay within Windows Server 2008 to work with Office 365.</p>
+
+
+
+<div class="cat_tags clear">
+<span class="category">Filed under: <a href="/category/office365-2/" title="View all posts in Office365" rel="category tag">Office365</a></span>
+<span class="continue"><a class="nr_comm_spot" href="/2013/01/19/setup-windows-server-2008-smtp-relay-for-office-365/#respond">Comments Off</a></span><div class="clear"></div>
+</div>
+<div class="cat_tags_close"></div>
+
+
+</div>
+
+<div id="tabsContainer">
+<a href="#" class="tabs selected"><span>Comments (0)</span></a>
+<a href="#" class="tabs"><span>Trackbacks (0)</span></a>
+<span class="subscribe_comments"><a href="/2013/01/19/setup-windows-server-2008-smtp-relay-for-office-365/feed/">( subscribe to comments on this post )</a></span>
+<div class="clear_tab"></div>
+<div class="tab-content selected">
+<a name="comments"></a>
+
+<p class="no">Sorry, the comment form is closed at this time.</p>
+
+ </div>
+
+<div class="tab-content">
+<p class="no">No trackbacks yet.</p></div>
+</div>
+<div class="next_previous_links">
+<span class="alignleft"><a href="/2013/01/21/exchange-2010-emc-initialization-failed-error-execution-of-scripts-is-disabled-on-this-system/" rel="next">Exchange 2010 EMC “initialization failed” error execution of scripts is disabled on this system</a> &raquo;</span>
+<span class="alignright">&laquo; <a href="/2013/01/12/how-to-install-nagios-in-rhel-6-3-centos-6-3/" rel="prev">How to install nagios in rhel 6.3 / centos 6.3</a></span>
+<div class="clear"></div>
+
+</div>
+</div>
+<div class="content-sidebar">
+				<h3>Most Recent</h3>		<ul>
+					<li>
+				<a href="/2013/01/24/sbsmonitoring-database-is-nearing-maximum-or-hit-the-4096mb-size-on-sbs-2008/" title="SBSMonitoring database is nearing maximum or hit the 4096MB size on SBS 2008">SBSMonitoring database is nearing maximum or hit the 4096MB size on SBS 2008</a>
+						</li>
+					<li>
+				<a href="/2013/01/21/exchange-2010-emc-initialization-failed-error-execution-of-scripts-is-disabled-on-this-system/" title="Exchange 2010 EMC “initialization failed” error execution of scripts is disabled on this system">Exchange 2010 EMC “initialization failed” error execution of scripts is disabled on this system</a>
+						</li>
+					<li>
+				<a href="/2013/01/19/setup-windows-server-2008-smtp-relay-for-office-365/" title="Setup Windows Server 2008 SMTP Relay for Office 365">Setup Windows Server 2008 SMTP Relay for Office 365</a>
+						</li>
+					<li>
+				<a href="/2013/01/12/how-to-install-nagios-in-rhel-6-3-centos-6-3/" title="How to install nagios in rhel 6.3 / centos 6.3">How to install nagios in rhel 6.3 / centos 6.3</a>
+						</li>
+					<li>
+				<a href="/2013/01/09/resolving-the-user-profile-service-failed-the-logon-user-profile-cannot-be-loaded/" title="Resolving “The User Profile Service failed the logon. User profile cannot be loaded.”">Resolving &#8220;The User Profile Service failed the logon. User profile cannot be loaded.&#8221;</a>
+						</li>
+				</ul>
+		<h3>Blogroll</h3>
+	<ul class="xoxo blogroll">
+<li><a href="#">CCIE Flyer</a></li>
+<li><a href="#">CCIE Journey</a></li>
+<li><a href="#">CCNP Security</a></li>
+<li><a href="#">EtherealMind</a></li>
+<li><a href="#">Gomjabbar</a></li>
+<li><a href="#">Hacking Cisco</a></li>
+<li><a href="#">INE Blog</a></li>
+<li><a href="#">IPExpert Blog</a></li>
+<li><a href="#">LoveMyTool</a></li>
+<li><a href="#">Networks Training</a></li>
+<li><a href="#">Packet Life</a></li>
+<li><a href="#">Packet Pushers</a></li>
+<li><a href="#">PacketU</a></li>
+<li><a href="#">RouterFreak</a></li>
+<li><a href="#" target="_blank">Tekcert</a></li>
+<li><a href="#">The Networking Nerd</a></li>
+
+	</ul>
+
+<h3>Tags</h3><div class="tagcloud"><a href="/tag/5500/" class="tag-link-11" title="1 topic" style="font-size: 8pt;">5500</a>
+<a href="/tag/5505/" class="tag-link-12" title="2 topics" style="font-size: 12.2pt;">5505</a>
+<a href="/tag/active-directory/" class="tag-link-9" title="1 topic" style="font-size: 8pt;">active directory</a>
+<a href="/tag/anyconnect/" class="tag-link-3" title="3 topics" style="font-size: 15pt;">anyconnect</a>
+<a href="/tag/areas/" class="tag-link-34" title="1 topic" style="font-size: 8pt;">areas</a>
+<a href="/tag/asa/" class="tag-link-10" title="7 topics" style="font-size: 22pt;">asa</a>
+<a href="/tag/asa5505/" class="tag-link-69" title="3 topics" style="font-size: 15pt;">asa5505</a>
+<a href="/tag/calculate/" class="tag-link-22" title="2 topics" style="font-size: 12.2pt;">calculate</a>
+<a href="/tag/centos/" class="tag-link-88" title="2 topics" style="font-size: 12.2pt;">CentOS</a>
+<a href="/tag/cisco/" class="tag-link-4" title="6 topics" style="font-size: 20.8333333333pt;">cisco</a>
+<a href="/tag/cisco-asa/" class="tag-link-13" title="4 topics" style="font-size: 17.3333333333pt;">cisco asa</a>
+<a href="/tag/cleanup/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">cleanup</a>
+<a href="/tag/cli/" class="tag-link-54" title="3 topics" style="font-size: 15pt;">cli</a>
+<a href="/tag/configure/" class="tag-link-8" title="1 topic" style="font-size: 8pt;">configure</a>
+<a href="/tag/cost/" class="tag-link-21" title="1 topic" style="font-size: 8pt;">cost</a>
+<a href="/tag/dropbox/" class="tag-link-17" title="1 topic" style="font-size: 8pt;">Dropbox</a>
+<a href="/tag/eigrp/" class="tag-link-29" title="1 topic" style="font-size: 8pt;">eigrp</a>
+<a href="/tag/exchange/" class="tag-link-62" title="2 topics" style="font-size: 12.2pt;">exchange</a>
+<a href="/tag/gpo/" class="tag-link-58" title="2 topics" style="font-size: 12.2pt;">GPO</a>
+<a href="/tag/how-to/" class="tag-link-23" title="3 topics" style="font-size: 15pt;">how to</a>
+<a href="/tag/ip-helper/" class="tag-link-39" title="1 topic" style="font-size: 8pt;">ip helper</a>
+<a href="/tag/ldap/" class="tag-link-6" title="1 topic" style="font-size: 8pt;">ldap</a>
+<a href="/tag/lsa/" class="tag-link-24" title="2 topics" style="font-size: 12.2pt;">lsa</a>
+<a href="/tag/lsa-types/" class="tag-link-26" title="1 topic" style="font-size: 8pt;">lsa types</a>
+<a href="/tag/metric/" class="tag-link-30" title="1 topic" style="font-size: 8pt;">metric</a>
+<a href="/tag/not-so-stubby/" class="tag-link-37" title="1 topic" style="font-size: 8pt;">not so stubby</a>
+<a href="/tag/nssa/" class="tag-link-35" title="1 topic" style="font-size: 8pt;">nssa</a>
+<a href="/tag/office365/" class="tag-link-55" title="4 topics" style="font-size: 17.3333333333pt;">office365</a>
+<a href="/tag/ospf/" class="tag-link-20" title="4 topics" style="font-size: 17.3333333333pt;">ospf</a>
+<a href="/tag/portal/" class="tag-link-5" title="1 topic" style="font-size: 8pt;">portal</a>
+<a href="/tag/securecrt/" class="tag-link-18" title="1 topic" style="font-size: 8pt;">SecureCRT</a>
+<a href="/tag/server/" class="tag-link-7" title="1 topic" style="font-size: 8pt;">server</a>
+<a href="/tag/setup/" class="tag-link-45" title="2 topics" style="font-size: 12.2pt;">setup</a>
+<a href="/tag/spanning-tree-protocol/" class="tag-link-31" title="1 topic" style="font-size: 8pt;">Spanning Tree Protocol</a>
+<a href="/tag/ssh/" class="tag-link-42" title="2 topics" style="font-size: 12.2pt;">ssh</a>
+<a href="/tag/stp/" class="tag-link-32" title="1 topic" style="font-size: 8pt;">stp</a>
+<a href="/tag/stub/" class="tag-link-33" title="1 topic" style="font-size: 8pt;">stub</a>
+<a href="/tag/synch/" class="tag-link-19" title="1 topic" style="font-size: 8pt;">Synch</a>
+<a href="/tag/totally-stubby/" class="tag-link-36" title="1 topic" style="font-size: 8pt;">totally stubby</a>
+<a href="/tag/types/" class="tag-link-25" title="1 topic" style="font-size: 8pt;">types</a>
+<a href="/tag/types-defined/" class="tag-link-38" title="1 topic" style="font-size: 8pt;">types defined</a>
+<a href="/tag/video/" class="tag-link-27" title="3 topics" style="font-size: 15pt;">video</a>
+<a href="/tag/windows/" class="tag-link-16" title="3 topics" style="font-size: 15pt;">windows</a>
+<a href="/tag/windows-xp/" class="tag-link-60" title="2 topics" style="font-size: 12.2pt;">Windows XP</a>
+<a href="/tag/wsus/" class="tag-link-14" title="1 topic" style="font-size: 8pt;">wsus</a></div>
+<!-- Site Meter XHTML Strict 1.0 -->
+</div><div class="clear"></div>
+</div>
+
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>

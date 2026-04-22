@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cisco ASA 5500 Dual ISP Connection [Failback] &laquo; JulianBen.com - JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <nav><a href="../index.html">← All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>Cisco ASA 5500 Dual ISP Connection [Failback] &laquo; JulianBen.com</h1>
+    <time>2012-11-17</time>
+    <div class="content">
+
+<div id="wrapper">
+
+<div id="top_cufon"><h1 id="logo"><a name="top" title="JulianBen.com" href="/">JulianBen.com</a> <small></small></h1></div>
+
+<div id="header">
+<a id="rss-feed" title="Syndicate this site using RSS" href="/feed/">Subscribe via RSS</a>
+
+<div id="top_bar">
+<div class="center_menu">
+<ul id="front_menu">
+    <li><a class="" title="Home" href="/"><span>Home</span></a></li>
+<li id="menu-item-286" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-286"><a href="/category/adobe/"><span>Adobe</span></a></li>
+<li id="menu-item-270" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-270"><a href="/category/cisco-2/"><span>Cisco</span></a></li>
+<li id="menu-item-269" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-269"><a href="/category/office365-2/"><span>Office365</span></a></li>
+<li id="menu-item-285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-285"><a href="/category/linux/"><span>Linux</span></a></li>
+<li id="menu-item-288" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-288"><a href="/category/microsoft/"><span>Microsoft</span></a></li></ul>
+</div>
+<form method="get" id="searchform" action="/"> <input type="text" value="" name="s" id="s"/> <input type="submit" id="go" value="" alt="Search" title="Search"/></form>
+</div>
+
+
+</div>
+<div id="content"><div id="content-body">
+<div class="post-55 post type-post status-publish format-standard hentry category-cisco-2 tag-5505 tag-asa5505 tag-cisco tag-cisco-asa tag-dual-isp tag-failback" id="post-55">
+<div class="comm_date"><span class="data"><span class="j">17</span>Nov/12</span><span class="nr_comm"><a class="nr_comm_spot" href="/2012/11/17/cisco-asa-5500-dual-isp-connection/#comments">0</a></span></div>
+<h2><a title="Cisco ASA 5500 Dual ISP Connection [Failback]" href="/2012/11/17/cisco-asa-5500-dual-isp-connection/" rel="bookmark">Cisco ASA 5500 Dual ISP Connection [Failback]</a></h2>
+<p>Starting from version 7.2(1) and upwards, the Cisco ASA 5500 series firewall supports now the Dual-ISP capability. You can connect two interfaces of the firewall to two different ISPs and use the new “SLA Monitor” feature (SLA=Service Level Monitoring) to monitor the link to the primary ISP, and if that fails, the traffic is routed to the Backup ISP.</p>
+<p>asa 5500 dual isp connection</p>
+<p>Assume that the Primary ISP (ISP-1) has assigned to us the public IP address 100.100.100.1 with gateway 100.100.100.2. Also, the Backup ISP (ISP-2) has assigned us the public IP 200.200.200.1 with gateway 200.200.200.2. Normally all traffic should flow through ISP-1, but if the physical link (or route) to that ISP fails, then traffic should be redirected to the Backup ISP. We can configure an SLA monitor service which will be checking every 30 seconds (using a ping echo request) the availability of the primary Gateway IP address (100.100.100.2). If there is no response in 20000 milliseconds (20 sec), then the default route will be redirected to the Backup ISP. The configuration is shown below:</p>
+<p>asa5500(config)# sla monitor 100<br/>
+asa5500(config-sla-monitor)# type echo protocol ipIcmpEcho 100.100.100.2 interface outside<br/>
+asa5500(config-sla-monitor-echo)# timeout 20000<br/>
+asa5500(config-sla-monitor-echo)# frequency 30<br/>
+asa5500(config)# sla monitor schedule 100 life forever start-time now<br/>
+asa5500(config)# track 1 rtr 100 reachability<br/>
+asa5500(config)# route outside 0.0.0.0 0.0.0.0 100.100.100.2 1 track 1<br/>
+asa5500(config)# route backup-isp 0.0.0.0 0.0.0.0 200.200.200.2 254</p>
+<p>Of course the configuration above assumes that you have already configured two interfaces connected to the ISPs, the first one with name ‘outside’ (security level 0) and the second one with name ‘backup-isp’ (security level 1).</p>
+
+
+
+<div class="cat_tags clear">
+<span class="category">Filed under: <a href="/category/cisco-2/" title="View all posts in Cisco" rel="category tag">Cisco</a></span>
+<span class="continue"><a class="nr_comm_spot" href="/2012/11/17/cisco-asa-5500-dual-isp-connection/#respond">Leave a comment</a></span><div class="clear"></div>
+</div>
+<div class="cat_tags_close"></div>
+
+
+</div>
+
+<div id="tabsContainer">
+<a href="#" class="tabs selected"><span>Comments (0)</span></a>
+<a href="#" class="tabs"><span>Trackbacks (0)</span></a>
+<span class="subscribe_comments"><a href="/2012/11/17/cisco-asa-5500-dual-isp-connection/feed/">( subscribe to comments on this post )</a></span>
+<div class="clear_tab"></div>
+<div class="tab-content selected">
+<a name="comments"></a>
+
+<p class="no">No comments yet.</p>
+
+ 
+<br/>
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="/web/20130124042817/http://www.julianben.com/2012/11/17/cisco-asa-5500-dual-isp-connection/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="/wp-comments-post.php" method="post" id="commentform">
+																										<p class="comment-form-author"><input id="author" name="author" type="text" value="" size="30"/><label for="author">Name</label></p>
+<p class="comment-form-email"><input id="email" name="email" type="text" value="" size="30"/><label for="email">Email</label></p>
+<p class="comment-form-url"><input id="url" name="url" type="text" value="" size="30"/><label for="url">Website</label></p>
+												<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Submit"/>
+							<input type="hidden" name="comment_post_ID" value="55" id="comment_post_ID"/>
+<input type="hidden" name="comment_parent" id="comment_parent" value="0"/>
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="b0a825c4c1"/></p>					</form>
+							</div><!-- #respond -->
+						
+
+</div>
+
+<div class="tab-content">
+<p class="no">No trackbacks yet.</p></div>
+</div>
+<div class="next_previous_links">
+<span class="alignleft"><a href="/2012/11/23/cisco-asa-port-forwarding-in-8-3-from-the-cli-the-easy-way/" rel="next">Cisco ASA Port Forwarding in 8.3 from the CLI the easy way</a> &raquo;</span>
+<span class="alignright">&laquo; <a href="/2012/11/17/how-to-create-local-accounts-via-group-policy/" rel="prev">How to create local accounts via Group Policy</a></span>
+<div class="clear"></div>
+
+</div>
+</div>
+<div class="content-sidebar">
+				<h3>Most Recent</h3>		<ul>
+					<li>
+				<a href="/2013/01/21/exchange-2010-emc-initialization-failed-error-execution-of-scripts-is-disabled-on-this-system/" title="Exchange 2010 EMC “initialization failed” error execution of scripts is disabled on this system">Exchange 2010 EMC “initialization failed” error execution of scripts is disabled on this system</a>
+						</li>
+					<li>
+				<a href="/2013/01/19/setup-windows-server-2008-smtp-relay-for-office-365/" title="Setup Windows Server 2008 SMTP Relay for Office 365">Setup Windows Server 2008 SMTP Relay for Office 365</a>
+						</li>
+					<li>
+				<a href="/2013/01/12/how-to-install-nagios-in-rhel-6-3-centos-6-3/" title="How to install nagios in rhel 6.3 / centos 6.3">How to install nagios in rhel 6.3 / centos 6.3</a>
+						</li>
+					<li>
+				<a href="/2013/01/09/resolving-the-user-profile-service-failed-the-logon-user-profile-cannot-be-loaded/" title="Resolving “The User Profile Service failed the logon. User profile cannot be loaded.”">Resolving &#8220;The User Profile Service failed the logon. User profile cannot be loaded.&#8221;</a>
+						</li>
+					<li>
+				<a href="/2013/01/02/how-to-convert-an-office365-federated-domain-back-to-a-managed-domain/" title="How to convert an Office365 federated domain back to a managed domain">How to convert an Office365 federated domain back to a managed domain</a>
+						</li>
+				</ul>
+		<h3>Blogroll</h3>
+	<ul class="xoxo blogroll">
+<li><a href="#">CCIE Flyer</a></li>
+<li><a href="#">CCIE Journey</a></li>
+<li><a href="#">CCNP Security</a></li>
+<li><a href="#">EtherealMind</a></li>
+<li><a href="#">Gomjabbar</a></li>
+<li><a href="#">Hacking Cisco</a></li>
+<li><a href="#">INE Blog</a></li>
+<li><a href="#">IPExpert Blog</a></li>
+<li><a href="#">LoveMyTool</a></li>
+<li><a href="#">Networks Training</a></li>
+<li><a href="#">Packet Life</a></li>
+<li><a href="#">Packet Pushers</a></li>
+<li><a href="#">PacketU</a></li>
+<li><a href="#">RouterFreak</a></li>
+<li><a href="#" target="_blank">Tekcert</a></li>
+<li><a href="#">The Networking Nerd</a></li>
+
+	</ul>
+
+<h3>Tags</h3><div class="tagcloud"><a href="/tag/5500/" class="tag-link-11" title="1 topic" style="font-size: 8pt;">5500</a>
+<a href="/tag/5505/" class="tag-link-12" title="2 topics" style="font-size: 12.2pt;">5505</a>
+<a href="/tag/active-directory/" class="tag-link-9" title="1 topic" style="font-size: 8pt;">active directory</a>
+<a href="/tag/anyconnect/" class="tag-link-3" title="3 topics" style="font-size: 15pt;">anyconnect</a>
+<a href="/tag/areas/" class="tag-link-34" title="1 topic" style="font-size: 8pt;">areas</a>
+<a href="/tag/asa/" class="tag-link-10" title="7 topics" style="font-size: 22pt;">asa</a>
+<a href="/tag/asa5505/" class="tag-link-69" title="3 topics" style="font-size: 15pt;">asa5505</a>
+<a href="/tag/calculate/" class="tag-link-22" title="2 topics" style="font-size: 12.2pt;">calculate</a>
+<a href="/tag/centos/" class="tag-link-88" title="2 topics" style="font-size: 12.2pt;">CentOS</a>
+<a href="/tag/cisco/" class="tag-link-4" title="6 topics" style="font-size: 20.8333333333pt;">cisco</a>
+<a href="/tag/cisco-asa/" class="tag-link-13" title="4 topics" style="font-size: 17.3333333333pt;">cisco asa</a>
+<a href="/tag/cleanup/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">cleanup</a>
+<a href="/tag/cli/" class="tag-link-54" title="3 topics" style="font-size: 15pt;">cli</a>
+<a href="/tag/configure/" class="tag-link-8" title="1 topic" style="font-size: 8pt;">configure</a>
+<a href="/tag/cost/" class="tag-link-21" title="1 topic" style="font-size: 8pt;">cost</a>
+<a href="/tag/dropbox/" class="tag-link-17" title="1 topic" style="font-size: 8pt;">Dropbox</a>
+<a href="/tag/eigrp/" class="tag-link-29" title="1 topic" style="font-size: 8pt;">eigrp</a>
+<a href="/tag/exchange/" class="tag-link-62" title="2 topics" style="font-size: 12.2pt;">exchange</a>
+<a href="/tag/gpo/" class="tag-link-58" title="2 topics" style="font-size: 12.2pt;">GPO</a>
+<a href="/tag/how-to/" class="tag-link-23" title="3 topics" style="font-size: 15pt;">how to</a>
+<a href="/tag/ip-helper/" class="tag-link-39" title="1 topic" style="font-size: 8pt;">ip helper</a>
+<a href="/tag/ldap/" class="tag-link-6" title="1 topic" style="font-size: 8pt;">ldap</a>
+<a href="/tag/lsa/" class="tag-link-24" title="2 topics" style="font-size: 12.2pt;">lsa</a>
+<a href="/tag/lsa-types/" class="tag-link-26" title="1 topic" style="font-size: 8pt;">lsa types</a>
+<a href="/tag/metric/" class="tag-link-30" title="1 topic" style="font-size: 8pt;">metric</a>
+<a href="/tag/not-so-stubby/" class="tag-link-37" title="1 topic" style="font-size: 8pt;">not so stubby</a>
+<a href="/tag/nssa/" class="tag-link-35" title="1 topic" style="font-size: 8pt;">nssa</a>
+<a href="/tag/office365/" class="tag-link-55" title="4 topics" style="font-size: 17.3333333333pt;">office365</a>
+<a href="/tag/ospf/" class="tag-link-20" title="4 topics" style="font-size: 17.3333333333pt;">ospf</a>
+<a href="/tag/portal/" class="tag-link-5" title="1 topic" style="font-size: 8pt;">portal</a>
+<a href="/tag/securecrt/" class="tag-link-18" title="1 topic" style="font-size: 8pt;">SecureCRT</a>
+<a href="/tag/server/" class="tag-link-7" title="1 topic" style="font-size: 8pt;">server</a>
+<a href="/tag/setup/" class="tag-link-45" title="2 topics" style="font-size: 12.2pt;">setup</a>
+<a href="/tag/spanning-tree-protocol/" class="tag-link-31" title="1 topic" style="font-size: 8pt;">Spanning Tree Protocol</a>
+<a href="/tag/ssh/" class="tag-link-42" title="2 topics" style="font-size: 12.2pt;">ssh</a>
+<a href="/tag/stp/" class="tag-link-32" title="1 topic" style="font-size: 8pt;">stp</a>
+<a href="/tag/stub/" class="tag-link-33" title="1 topic" style="font-size: 8pt;">stub</a>
+<a href="/tag/synch/" class="tag-link-19" title="1 topic" style="font-size: 8pt;">Synch</a>
+<a href="/tag/totally-stubby/" class="tag-link-36" title="1 topic" style="font-size: 8pt;">totally stubby</a>
+<a href="/tag/types/" class="tag-link-25" title="1 topic" style="font-size: 8pt;">types</a>
+<a href="/tag/types-defined/" class="tag-link-38" title="1 topic" style="font-size: 8pt;">types defined</a>
+<a href="/tag/video/" class="tag-link-27" title="3 topics" style="font-size: 15pt;">video</a>
+<a href="/tag/windows/" class="tag-link-16" title="3 topics" style="font-size: 15pt;">windows</a>
+<a href="/tag/windows-xp/" class="tag-link-60" title="2 topics" style="font-size: 12.2pt;">Windows XP</a>
+<a href="/tag/wsus/" class="tag-link-14" title="1 topic" style="font-size: 8pt;">wsus</a></div>
+<!-- Site Meter XHTML Strict 1.0 -->
+</div><div class="clear"></div>
+</div>
+
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">← Back to all posts</a></p></footer>
+</body>
+</html>
