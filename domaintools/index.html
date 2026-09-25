@@ -5,28 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Domain Tools &laquo; JulianBen.com</title>
 <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <a href="../index.html" class="site-title">JulianBen.com</a>
   <p class="tagline">MX, SPF, DMARC, DKIM and WHOIS for any domain, in one lookup</p>
-  <nav><a href="../index.html">&larr; All Posts</a> &middot; <a href="https://domain-toolkit-six.vercel.app/" target="_blank" rel="noopener">Open full page &#8599;</a></nav>
+  <nav><a href="../index.html">&larr; All Posts</a></nav>
 </header>
 <main class="tool-main">
-  <div class="tool-frame-wrap">
-    <iframe
-      class="tool-frame"
-      src="https://domain-toolkit-six.vercel.app/"
-      title="Domain Toolkit — MX, SPF, DMARC, DKIM and WHOIS lookup"
-      loading="lazy"
-    ></iframe>
-  </div>
-  <p class="tool-note">
-    Runs live on its own server (needed for real DNS and WHOIS lookups, which a static page like this
-    one can&rsquo;t do on its own) &mdash; if it doesn&rsquo;t load below, use
-    <a href="https://domain-toolkit-six.vercel.app/" target="_blank" rel="noopener">the full page</a> instead.
+  <form class="tool-form" id="lookupForm">
+    <div class="tool-form-row">
+      <input class="tool-input" type="text" id="domainInput" placeholder="example.com" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="tool-submit" type="submit" id="submitBtn">Look up</button>
+    </div>
+    <button type="button" class="advanced-toggle" id="advancedToggle">DKIM selector not detected automatically? Override it</button>
+    <div class="advanced-row" id="advancedRow" hidden>
+      <span class="advanced-label">selector._domainkey.&lt;domain&gt;</span>
+      <input class="selector-input" type="text" id="selectorInput" placeholder="e.g. google, s1, mandrill" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+  </form>
+
+  <div class="error-box" id="errorBox" hidden></div>
+  <div id="results"></div>
+
+  <p class="static-note">
+    Runs entirely in your browser &mdash; no server involved. MX, SPF, DMARC and DKIM come from real DNS
+    lookups via Cloudflare's public DNS-over-HTTPS resolver, including every <code>include:</code> and
+    <code>redirect=</code> SPF pulls in &mdash; expanded recursively, with a running count against the
+    RFC&nbsp;7208 10-lookup limit a real mail server enforces. WHOIS data comes from RDAP, the modern
+    HTTPS-based replacement for the WHOIS protocol; real WHOIS itself needs a raw network connection no
+    browser can make, so a handful of registries that haven't published an RDAP server (.io and .co
+    among them) won't return anything here &mdash; that's a gap in the registry's own service, not a
+    failed lookup.
   </p>
 </main>
 <footer><p>Archive of JulianBen.com (2012&ndash;2020)</p></footer>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,236 @@
+.tool-main { max-width: 760px; }
+
+.tool-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #111118;
+  border: 1px solid #2a2a35;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.tool-form-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.tool-input {
+  flex: 1;
+  min-width: 160px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 15px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #1b1b21;
+  color: #e0e0e0;
+}
+
+.tool-input:focus { outline: 2px solid #7ec8e3; outline-offset: -1px; }
+
+.tool-submit {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #7ec8e3;
+  color: #0d0f13;
+  cursor: pointer;
+}
+
+.tool-submit:disabled { opacity: 0.6; cursor: default; }
+
+.advanced-toggle {
+  align-self: flex-start;
+  font-size: 12.5px;
+  color: #999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.advanced-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.advanced-label { font-size: 12.5px; color: #999; }
+
+.selector-input {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 13px;
+  padding: 7px 9px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #1b1b21;
+  color: #e0e0e0;
+  flex: 1;
+  min-width: 140px;
+}
+
+.error-box {
+  font-size: 13.5px;
+  color: #f0685f;
+  background: #2c1613;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: #111118;
+  border: 1px solid #2a2a35;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.card-title-group { display: flex; flex-direction: column; gap: 2px; }
+.card-title { font-size: 15px; font-weight: 700; color: #fff; }
+.card-subtitle { font-size: 11.5px; color: #777; }
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex: none;
+}
+
+.badge-good { color: #4ade9a; background: #0f261c; }
+.badge-warn { color: #f5a94e; background: #2b2011; }
+.badge-bad { color: #f0685f; background: #2c1613; }
+.badge-neutral { color: #999; background: #1a1e26; }
+
+.record-box {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12.5px;
+  line-height: 1.6;
+  background: #1a1e26;
+  border-radius: 8px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  word-break: break-all;
+  white-space: pre-wrap;
+  color: #ccc;
+}
+
+.record-box-wrap { display: flex; align-items: flex-start; gap: 6px; }
+.record-box-wrap .record-box { flex: 1; margin: 0; }
+
+.copy-btn {
+  flex: none;
+  font-size: 11px;
+  font-family: inherit;
+  padding: 4px 9px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #1a1e26;
+  color: #999;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.copy-btn:hover { border-color: #555; color: #ccc; }
+
+.info-bar {
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 7px 10px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+.info-bar-good { color: #4ade9a; background: #0f261c; }
+.info-bar-warn { color: #f5a94e; background: #2b2011; }
+.info-bar-bad { color: #f0685f; background: #2c1613; }
+.info-bar-neutral { color: #999; background: #1a1e26; }
+
+.spf-node { display: flex; flex-direction: column; gap: 8px; }
+.spf-node-error, .spf-node-warn {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.spf-node-error { color: #f0685f; background: #2c1613; }
+.spf-node-warn { color: #f5a94e; background: #2b2011; }
+
+.ip-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.ip-chip {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: #1a1e26;
+  color: #7ec8e3;
+  border: 1px solid #2a2a35;
+}
+
+.spf-include-row { margin-left: 4px; border-left: 2px solid #2a2a35; padding-left: 12px; }
+.spf-include-toggle {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  color: #7ec8e3;
+  background: #161a22;
+  border: 1px solid #2a2a35;
+  border-radius: 6px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+.spf-include-toggle:hover { border-color: #444; }
+.spf-include-child { margin-top: 8px; padding-left: 4px; }
+
+.mx-table { width: 100%; border-collapse: collapse; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: #ccc; }
+.mx-table td { padding: 5px 8px; border-top: 1px solid #2a2a35; }
+.mx-table tr:first-child td { border-top: none; }
+.mx-priority { color: #777; width: 1%; white-space: nowrap; }
+
+.dkim-list { display: flex; flex-direction: column; gap: 8px; }
+.dkim-hit { background: #1a1e26; border-radius: 8px; padding: 8px 10px; }
+.dkim-hit .spf-include-toggle { background: #161a22; }
+
+.whois-grid { display: grid; grid-template-columns: auto 1fr; gap: 5px 14px; font-size: 13px; margin-bottom: 8px; color: #ccc; }
+.whois-label { color: #777; font-size: 12px; white-space: nowrap; }
+.whois-value { font-family: ui-monospace, "SF Mono", Menlo, monospace; word-break: break-word; }
+
+.raw-toggle { font-size: 12.5px; color: #7ec8e3; background: none; border: none; cursor: pointer; padding: 4px 0; }
+.raw-box {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  background: #1a1e26;
+  border-radius: 8px;
+  padding: 10px 12px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 340px;
+  margin-top: 8px;
+  color: #aaa;
+}
+
+.empty { font-size: 13px; color: #888; }
+
+.static-note {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid #222;
+}
+
+@media (max-width: 480px) {
+  .tool-form-row { flex-direction: column; }
+  .whois-grid { grid-template-columns: 1fr; }
+}
