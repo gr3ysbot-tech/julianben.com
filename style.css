@@ -10,6 +10,11 @@ nav { margin-top: 0.5rem; font-size: 0.9rem; }
 
 main { max-width: 860px; margin: 2rem auto; padding: 0 1.5rem; }
 
+.tool-main { max-width: 1000px; }
+.tool-frame-wrap { border: 1px solid #2a2a35; border-radius: 8px; overflow: hidden; background: #0d0f13; }
+.tool-frame { width: 100%; height: 85vh; min-height: 640px; border: 0; display: block; }
+.tool-note { color: #777; font-size: 0.85rem; margin-top: 0.9rem; text-align: center; }
+
 h2 { color: #ccc; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 500; }
 
 .post-list { list-style: none; }
