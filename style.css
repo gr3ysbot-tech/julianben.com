@@ -10,11 +10,11 @@ nav { margin-top: 0.5rem; font-size: 0.9rem; }
 
 main { max-width: 860px; margin: 2rem auto; padding: 0 1.5rem; }
 
-.tool-promo { background: #111118; border: 1px solid #333; border-left: 3px solid #7ec8e3; border-radius: 4px; padding: 1.2rem 1.5rem; margin-bottom: 2rem; }
-.tool-promo-title { color: #fff; font-size: 1.15rem; margin-bottom: 0.5rem; }
-.tool-promo p { font-size: 0.95rem; color: #ccc; margin-bottom: 0.7rem; }
-.tool-promo pre { background: #0a0a0e; color: #a8d8a8; padding: 0.7rem 1rem; border-radius: 3px; font-size: 0.95rem; overflow-x: auto; margin-bottom: 0.7rem; }
-.tool-promo-link { margin-bottom: 0 !important; }
+.tool-promo { background: #111118; border: 1px solid #333; border-left: 3px solid #7ec8e3; border-radius: 4px; padding: 0.6rem 1rem; margin-bottom: 1.2rem; }
+.tool-promo-title { color: #fff; font-size: 0.9rem; margin-bottom: 0.25rem; }
+.tool-promo p { font-size: 0.78rem; color: #ccc; margin-bottom: 0.35rem; }
+.tool-promo pre { background: #0a0a0e; color: #a8d8a8; padding: 0.35rem 0.6rem; border-radius: 3px; font-size: 0.78rem; overflow-x: auto; margin-bottom: 0.35rem; display: inline-block; }
+.tool-promo-link { margin-bottom: 0 !important; font-size: 0.78rem; }
 
 h2 { color: #ccc; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 500; }
 
