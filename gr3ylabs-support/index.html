@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gr3yLabs Support &laquo; JulianBen.com</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a href="../index.html" class="site-title">JulianBen.com</a>
+  <p class="tagline">Dell/Lenovo debloat, Microsoft 365 Apps deploy, and an app install catalog</p>
+  <nav><a href="../index.html">&larr; All Posts</a></nav>
+</header>
+<main>
+  <article>
+    <h1>Gr3yLabs Support</h1>
+    <div class="content">
+
+      <p>Gr3yLabs Support is a Windows PowerShell GUI built for the kind of work an MSP or
+      internal IT tech does on every new or returning client laptop: strip out OEM bloat,
+      deploy Microsoft 365 Apps, install the apps a user actually needs, apply a consistent
+      set of tweaks, and rename the machine to a standard naming convention &mdash; all from
+      one tool, one command to launch it.</p>
+
+      <pre><code>irm get.gr3y.io/debloat | iex</code></pre>
+
+      <p>That one line self-elevates, downloads the current version straight from GitHub
+      (hash-verified against the exact commit it's pulling from, so there's nothing stale or
+      tampered with in between), and launches the GUI. Nothing to install or keep updated by
+      hand &mdash; every run is current.</p>
+
+      <h2>What it does</h2>
+      <ul>
+        <li><strong>Debloat + Office</strong> &mdash; removes Dell/Lenovo OEM bloatware (AppX
+        and Win32, with provisioning cleared so it doesn't come back for new user profiles),
+        deploys Microsoft 365 Apps for business via the Office Deployment Tool, renames the
+        machine to a configurable hostname pattern, and applies DNS/telemetry/power tweaks.</li>
+        <li><strong>Install Apps</strong> &mdash; a categorized catalog (browsers, Microsoft
+        tools, documents, communications, utilities, and more) driven entirely by winget, with
+        a one-click Business Baseline filter so a client machine doesn't end up with Tor
+        Browser or qBittorrent by accident.</li>
+        <li><strong>Config</strong> &mdash; one-off fixes (SFC/DISM, Windows Update reset,
+        winget repair, network reset, time resync), a Dell hardware-lifecycle check (service
+        tag &rarr; ship date &rarr; repair-or-replace recommendation), and the same
+        tweak/DNS controls as the Debloat tab for a machine that's already been set up.</li>
+        <li><strong>Panels</strong> &mdash; one-click shortcuts to the built-in Windows
+        applets (Device Manager, Disk Management, Services, and the rest) a tech reaches for
+        constantly.</li>
+        <li><strong>Provisioning</strong> &mdash; hostname renaming against a configurable
+        pattern (e.g. <code>Client01-{SERIAL}-WKS</code>, pulling the real BIOS serial
+        number in).</li>
+      </ul>
+
+      <h2>Comparing apps against an old machine</h2>
+
+      <p>A common replacement-laptop scenario: the old machine has a pile of installed
+      software, and the new one needs the same set &mdash; whatever's winget-installable,
+      anyway. <strong>Compare Against List...</strong> (on the Install Apps tab) handles this
+      by taking an export of what's on the old machine and checking off every catalog app
+      that's there but missing here. If something newer or better is already installed on
+      the new machine, it says so explicitly instead of silently re-suggesting it.</p>
+
+      <p>There are three ways to get the old machine's list over, depending on how much
+      access you actually have to it:</p>
+
+      <h3>1. Both machines reachable with a GUI</h3>
+      <p>Run Gr3yLabs Support on the old machine, click <strong>Export Installed Apps...</strong>,
+      save the JSON file. On the new machine, click <strong>Compare Against List...</strong>
+      and point it at that file.</p>
+
+      <h3>2. Command-line only on the old machine</h3>
+      <p>No GUI access, but some form of remote command execution (an RMM "run script"
+      action, PowerShell remoting, <code>winrs</code>) &mdash; the Install Apps tab's
+      <strong>No GUI access?</strong> button next to Export Installed Apps gives the exact
+      one-liner, copy-ready:</p>
+      <pre><code>irm get.gr3y.io/debloat-export | iex</code></pre>
+      <p>That prints the full export as JSON straight to the console &mdash; copy it out
+      however the remote session lets you, save it as a <code>.json</code> file, and load
+      that with Compare Against List... on the new machine. To have it write the file
+      directly on that machine instead:</p>
+      <pre><code>$s = irm get.gr3y.io/debloat-export
+&amp; ([scriptblock]::Create($s)) -OutputPath C:\Temp\installed-apps.json</code></pre>
+
+      <h3>3. Pairing code &mdash; no file at all</h3>
+      <p>The newest option, for when even moving a file off the old machine is a hassle. On
+      the new machine, Compare Against List... &rarr; <strong>Generate a Pairing Code...</strong>
+      shows a one-time code and starts waiting. Run the matching command on the old machine
+      through whatever access is available:</p>
+      <pre><code>$s = irm get.gr3y.io/debloat-export; &amp; ([scriptblock]::Create($s)) -Code 7XQK2P</code></pre>
+      <p>(the real code is generated fresh each time, shown right in the dialog with a Copy
+      button). The export is sent straight to the waiting app instance through a short-lived
+      relay &mdash; no file, nothing to copy-paste by hand. The code only works once, and
+      only while that dialog is actually open waiting for it: close it, or let the 10-minute
+      window expire, and the export has nowhere to go.</p>
+
+      <h2>Source</h2>
+      <p><a href="https://github.com/gr3ysbot-tech/Gr3y-Tools">gr3ysbot-tech/Gr3y-Tools</a>
+      on GitHub &mdash; issues and PRs welcome.</p>
+
+    </div>
+  </article>
+</main>
+<footer><p><a href="../index.html">&larr; Back to all posts</a></p></footer>
+</body>
+</html>
